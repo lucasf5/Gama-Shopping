@@ -11,7 +11,7 @@ export function Router() {
   return (
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
-        <Route path="/" element={<Login />} />
+        <Route index element={<Login />} />
         <Route path="/novo_usuario" element={<CadastroUsuario />} />
         <Route path="/novo_produto" element={<CadastroProduto />} />
         <Route path="/cliente" element={<PaginaCliente />} />

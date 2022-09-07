@@ -5,16 +5,8 @@ import { api } from '../../services/api'
 
 import { CardContainer } from './styles'
 import { ButtonCart } from '../PI006-ButtonCart'
+import { Product } from '../../types'
 
-interface Product {
-  id: number
-  name: string
-  type: string
-  type2?: string
-  description: string
-  price: number
-  imgUrl: string
-}
 
 interface ProductFormatted extends Product {
   priceFormatted: string

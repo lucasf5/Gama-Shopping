@@ -13,6 +13,14 @@
       "description": "Wireless Gamer 3 modos | Profissional",
       "price": 529,
       "imgUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTYiFTq2GNd7YtOStrSA5wvzOpwCH_75PAWXyEL8KunGdPBPR2UhqFGGRTP9btmGYsgJlTNYo8KQVzsOOjkubLK0N-I7zXV5Xe7cccumXs2&usqp=CAE"
+    },
+    {
+      "id": 2,
+      "name": "JBL Free Wfh",
+      "type": "Wireless",
+      "description": "Wireless Headset Over-ear preto",
+      "price": 399,
+      "imgUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRH_liaHoGHR2PfT5D1s9vKu40lPS7FanAaYwn-qAY8RFGC3iNyyTJAywCIjD4xQMuC8AC2DD0nKU9xi-7TK7bBokRzL7fknvlghnWZQ2uosI9psVYu_j5c&usqp=CAE"
     }
   ]
 }

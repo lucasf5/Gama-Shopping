@@ -1,29 +1,29 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
 import { toast } from 'react-toastify'
 import { api } from '../services/api'
-import { IAdress, ICreateAdressData, IProduct, IUpdateProductAmount } from '../types'
+import { Adress, CreateAdressData, Product, UpdateProductAmount } from '../types'
 
-interface ICartProviderProps {
+interface CartProviderProps {
   children: ReactNode
 }
 
 interface CartContextData {
-  cart: IProduct[]
-  adress: IAdress[] | undefined
-  activeAdress: IAdress | undefined
+  cart: Product[]
+  adress: Adress[] | undefined
+  activeAdress: Adress | undefined
   addProduct: (productId: number) => Promise<void>
   removeProduct: (productId: number) => void
-  updateProductAmount: ({ productId, amount }: IUpdateProductAmount) => void
-  createNewAdress: (data: ICreateAdressData) => void
+  updateProductAmount: ({ productId, amount }: UpdateProductAmount) => void
+  createNewAdress: (data: CreateAdressData) => void
 }
 
 const CartContext = createContext<CartContextData>({} as CartContextData)
 
-export function CartProvider({ children }: ICartProviderProps) {
-  const [adress, setAdress] = useState<IAdress[]>([])
+export function CartProvider({ children }: CartProviderProps) {
+  const [adress, setAdress] = useState<Adress[]>([])
   const [activeAdressId, setActiveAdresId] = useState<string | null>(null)
 
-  const [cart, setCart] = useState<IProduct[]>(() => {
+  const [cart, setCart] = useState<Product[]>(() => {
     const storagedCart = localStorage.getItem('@GamaShopping:cart')
 
     if (storagedCart) {
@@ -95,7 +95,7 @@ export function CartProvider({ children }: ICartProviderProps) {
   const updateProductAmount = async ({
     productId,
     amount,
-  }: IUpdateProductAmount) => {
+  }: UpdateProductAmount) => {
     try {
       if (amount <= 0) {
         return
@@ -130,7 +130,7 @@ export function CartProvider({ children }: ICartProviderProps) {
     }
   }
 
-  function createNewAdress(data: ICreateAdressData) {
+  function createNewAdress(data: CreateAdressData) {
     const id = String(new Date().getTime())
 
     const newAdress = {

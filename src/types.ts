@@ -1,4 +1,4 @@
-export interface Product {
+export interface IProduct {
   id: number
   name: string
   type?: string
@@ -9,12 +9,12 @@ export interface Product {
   amount: number
 }
 
-export interface Stock {
+export interface IStock {
   id: number
   amount: number
 }
 
-export interface Adress {
+export interface IAdress {
   id: string
   cep: string
   street: string
@@ -26,7 +26,7 @@ export interface Adress {
   payment: string
 }
 
-export interface CreateAdressData {
+export interface ICreateAdressData {
   cep: string
   street: string
   city: string
@@ -37,7 +37,7 @@ export interface CreateAdressData {
   payment: string
 }
 
-export interface UpdateProductAmount {
+export interface IUpdateProductAmount {
   productId: number
   amount: number
 }

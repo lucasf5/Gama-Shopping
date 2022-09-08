@@ -6,7 +6,7 @@ import { Router } from "./Router";
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
 
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 export function App() {
   return (
@@ -19,7 +19,5 @@ export function App() {
         <GlobalStyle />
       </BrowserRouter>
     </ThemeProvider>
-  )
+  );
 }
-
-

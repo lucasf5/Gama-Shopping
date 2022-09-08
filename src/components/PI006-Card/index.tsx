@@ -5,10 +5,10 @@ import { api } from '../../services/api'
 
 import { CardContainer } from './styles'
 import { ButtonCart } from '../PI006-ButtonCart'
-import { Product } from '../../types'
+import { IProduct } from '../../types'
 
 
-interface ProductFormatted extends Product {
+interface ProductFormatted extends IProduct {
   priceFormatted: string
 }
 
@@ -22,9 +22,9 @@ export function Cards() {
 
   useEffect(() => {
     async function loadProducts() {
-      const response = await api.get<Product[]>('products')
+      const response = await api.get<IProduct[]>('products')
 
-      const data = response.data.map((product: Product) => ({
+      const data = response.data.map((product: IProduct) => ({
         ...product,
         priceFormatted: formatPrice(product.price),
       }))

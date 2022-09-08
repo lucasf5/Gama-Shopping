@@ -1,29 +1,29 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
 import { toast } from 'react-toastify'
 import { api } from '../services/api'
-import { Adress, CreateAdressData, Product, UpdateProductAmount } from '../types'
+import { IAdress, ICreateAdressData, IProduct, IUpdateProductAmount } from '../types'
 
 interface CartProviderProps {
   children: ReactNode
 }
 
-interface CartContextData {
-  cart: Product[]
-  adress: Adress[] | undefined
-  activeAdress: Adress | undefined
+interface ICartContextData {
+  cart: IProduct[]
+  adress: IAdress[] | undefined
+  activeAdress: IAdress | undefined
   addProduct: (productId: number) => Promise<void>
   removeProduct: (productId: number) => void
-  updateProductAmount: ({ productId, amount }: UpdateProductAmount) => void
-  createNewAdress: (data: CreateAdressData) => void
+  updateProductAmount: ({ productId, amount }: IUpdateProductAmount) => void
+  createNewAdress: (data: ICreateAdressData) => void
 }
 
-const CartContext = createContext<CartContextData>({} as CartContextData)
+const CartContext = createContext<ICartContextData>({} as ICartContextData)
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [adress, setAdress] = useState<Adress[]>([])
+  const [adress, setAdress] = useState<IAdress[]>([])
   const [activeAdressId, setActiveAdresId] = useState<string | null>(null)
 
-  const [cart, setCart] = useState<Product[]>(() => {
+  const [cart, setCart] = useState<IProduct[]>(() => {
     const storagedCart = localStorage.getItem('@GamaShopping:cart')
 
     if (storagedCart) {
@@ -95,7 +95,7 @@ export function CartProvider({ children }: CartProviderProps) {
   const updateProductAmount = async ({
     productId,
     amount,
-  }: UpdateProductAmount) => {
+  }: IUpdateProductAmount) => {
     try {
       if (amount <= 0) {
         return
@@ -130,7 +130,7 @@ export function CartProvider({ children }: CartProviderProps) {
     }
   }
 
-  function createNewAdress(data: CreateAdressData) {
+  function createNewAdress(data: ICreateAdressData) {
     const id = String(new Date().getTime())
 
     const newAdress = {
@@ -168,7 +168,7 @@ export function CartProvider({ children }: CartProviderProps) {
   )
 }
 
-export function useCart(): CartContextData {
+export function useCart(): ICartContextData {
   const context = useContext(CartContext)
 
   return context

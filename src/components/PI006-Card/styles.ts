@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const CardContainer = styled.main`
-  max-width: 16rem;
-  height: 19.375rem;
+  min-width: 16rem;
+  max-height: 20rem;
   background: ${(props) => props.theme['gray-100']};
   margin: 2rem auto;
   padding: 0.8rem;
@@ -13,7 +13,7 @@ export const CardContainer = styled.main`
   flex-direction: column;
   img {
     margin-top: -5rem;
-    width: 10rem;
+    max-width: 10rem;
   }
   span {
     background: ${(props) => props.theme['yellow-100']};
@@ -46,7 +46,7 @@ export const CardContainer = styled.main`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 0.8rem;
+    margin-top: 1rem;
     gap: 1rem;
     p:nth-of-type(1) {
       font-family: 'Baloo 2', sans-serif;

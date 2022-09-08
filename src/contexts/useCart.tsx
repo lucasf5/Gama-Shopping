@@ -7,7 +7,7 @@ interface ICartProviderProps {
   children: ReactNode
 }
 
-interface CartContextData {
+interface ICartContextData {
   cart: IProduct[]
   adress: IAdress[] | undefined
   activeAdress: IAdress | undefined
@@ -17,7 +17,7 @@ interface CartContextData {
   createNewAdress: (data: ICreateAdressData) => void
 }
 
-const CartContext = createContext<CartContextData>({} as CartContextData)
+const CartContext = createContext<ICartContextData>({} as ICartContextData)
 
 export function CartProvider({ children }: ICartProviderProps) {
   const [adress, setAdress] = useState<IAdress[]>([])
@@ -168,7 +168,7 @@ export function CartProvider({ children }: ICartProviderProps) {
   )
 }
 
-export function useCart(): CartContextData {
+export function useCart(): ICartContextData {
   const context = useContext(CartContext)
 
   return context

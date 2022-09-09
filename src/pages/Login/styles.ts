@@ -45,6 +45,10 @@ export const FormContainer = styled.form`
     border-radius: 8px;
     padding: 1rem;
     box-shadow: 1px 1px 2px 2px ${props => props.theme["purple-500"]};
+
+    &:focus {
+      box-shadow: 0 0 0 2px ${props => props.theme["green"]};
+    }
   }
 
   button {

@@ -5,6 +5,7 @@ import { CadastroUsuario } from './pages/CadastroUsuario'
 import { Checkout } from './pages/Checkout'
 import { Login } from './pages/Login'
 import { PaginaCliente } from './pages/PaginaCliente'
+import { PaginaVendedor } from './pages/PaginaVendedor'
 import { Sucesso } from './pages/Sucesso'
 
 export function Router() {
@@ -15,6 +16,7 @@ export function Router() {
         <Route path="/novo_usuario" element={<CadastroUsuario />} />
         <Route path="/novo_produto" element={<CadastroProduto />} />
         <Route path="/cliente" element={<PaginaCliente />} />
+        <Route path="/vendedor" element={<PaginaVendedor />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/sucesso" element={<Sucesso />} />
       </Route>

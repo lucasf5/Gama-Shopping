@@ -1,7 +1,6 @@
-import { Container } from "./styles";
-
-export function CadastroUsuario() {
+import CadastroComponente from "../../components/P1002-2-Cadastro"
+export const CadastroUsuario = () => {
   return (
-    <Container>Cadastro Usuario</Container>
+    <CadastroComponente />
   )
 }

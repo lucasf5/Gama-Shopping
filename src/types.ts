@@ -41,3 +41,29 @@ export interface IUpdateProductAmount {
   productId: number
   amount: number
 }
+
+export interface IEventEmailRegister {
+  name: string
+  value: string
+}
+
+export interface IEventEmail {
+  email: string
+  senha: string
+}
+export interface IEventEmailCadastro {
+  email: string
+  senha: string
+  confirmarSenha: string
+}
+
+export interface ICadastro {
+  [x: string]: string
+  email: string
+  senha: string
+  id: string
+}
+
+export interface ICadastros {
+  [key: string]: ICadastro[]
+}

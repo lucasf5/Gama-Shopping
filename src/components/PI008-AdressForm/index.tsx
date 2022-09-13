@@ -7,7 +7,7 @@ const AdressForm = () => {
             <div className="header">
                 <MapPinLine className="icon" size={32} />
                 <div>
-                    <h2>Enderesço</h2>
+                    <h2>Endereço</h2>
                     <p>Informe o enderesço onde o produto será entregue</p>
                 </div>
             </div>

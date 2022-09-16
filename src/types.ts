@@ -67,3 +67,12 @@ export interface ICadastro {
 export interface ICadastros {
   [key: string]: ICadastro[]
 }
+
+export interface IFormProps {
+  name: string;
+  description: string;
+  type: string;
+  price: string;
+  urlImage: string;
+  payment: string;
+}

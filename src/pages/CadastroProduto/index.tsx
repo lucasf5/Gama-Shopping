@@ -1,7 +1,7 @@
-import { Container } from "./styles";
+import { ProductRegistration } from "../../components/PI011-CadastroProduto";
 
 export function CadastroProduto() {
   return (
-    <Container>Cadastro Produto</Container>
+    <ProductRegistration />
   )
 }

@@ -1,5 +1,5 @@
 import { Cards } from "../../components/PI006-Card";
-import LinkFornecedor from "../../components/PI010-LinkFornecedor";
+import LinkFornecedor from "../../components/PI007-LinkFornecedor";
 import { Container, OptionsContainer } from "./styles";
 
 export function PaginaCliente() {

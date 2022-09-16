@@ -9,13 +9,14 @@ import {
   SuccessContainer,
   TimeContent,
   TitleContainer,
+  SuccessContainerPrincipal
 } from './styles'
 
 export function Success() {
 //   const { activeAdress } = useCart()
 
   return (
-    <>
+    <SuccessContainerPrincipal>
       <TitleContainer>
         <h1>Uhu! Pedido confirmado</h1>
         <p>Agora é só aguardar que logo o seu produto chegará até você!</p>
@@ -54,6 +55,6 @@ export function Success() {
         </InfoSuccessContainer>
         <img src={deliveryImg} alt="" />
       </SuccessContainer>
-    </>
+    </SuccessContainerPrincipal>
   )
 }

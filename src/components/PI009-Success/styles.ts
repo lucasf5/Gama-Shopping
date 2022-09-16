@@ -1,20 +1,29 @@
 import styled from 'styled-components'
 
+export const SuccessContainerPrincipal = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 export const TitleContainer = styled.div`
   max-width: 75rem;
   margin: 6rem auto 0;
+
+  @media (max-width: 450px) {
+    font-size: 2rem;
+    text-align: center;
+    justify-content: center;
+
+  }
+
   h1 {
     font-family: 'Baloo 2', sans-serif;
     color: ${(props) => props.theme['yellow-900']};
     line-height: 1.3;
     font-weight: 800;
     font-size: 2rem;
-
-    @media (max-width: 450px) {
-    font-size: 2rem;
-    text-align: center;
-    justify-content: center;
-  }
+  
   }
   
 
@@ -44,9 +53,13 @@ export const SuccessContainer = styled.main`
     font-weight: bold;
   }
 
+
+
   @media (max-width: 450px) {
-    display: inline-block;
     font-size: 1rem;
+    img{
+      display:none
+    }
   }
 `
 
@@ -62,8 +75,7 @@ export const InfoSuccessContainer = styled.div`
   border-bottom-left-radius: 44px;
 
   @media (max-width: 450px) {
-    align-content: center;
-    margin: 2.5rem;
+    align-items: center;
     width:  22rem;
     height: 16rem;
   }

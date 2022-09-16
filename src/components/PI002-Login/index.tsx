@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 import {
   ContainerSection,
@@ -30,7 +31,7 @@ const Login = () => {
     setDados({
       ...dados,
       [name]: value,
-    });
+    }); 
   };
 
   const Navigate = useNavigate();

@@ -31,7 +31,7 @@ const Login = () => {
     setDados({
       ...dados,
       [name]: value,
-    });
+    }); 
   };
 
   const Navigate = useNavigate();

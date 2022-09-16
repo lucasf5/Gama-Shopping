@@ -18,7 +18,7 @@ export function Success() {
     <>
       <TitleContainer>
         <h1>Uhu! Pedido confirmado</h1>
-        <p>Agora é só aguardar que logo o café chegará até você</p>
+        <p>Agora é só aguardar que logo o seu produto chegará até você!</p>
       </TitleContainer>
       <SuccessContainer>
         <InfoSuccessContainer>
@@ -26,10 +26,10 @@ export function Success() {
             <MapPin size={32} />
             <p>
               Entrega em{' '}
-              <strong>
+              <span>
                 Rua João Daniel Martinelli, 102
                 <br/>
-              </strong>
+              </span>
                 Farrapos - Porto Alegre - RS
                
               
@@ -57,52 +57,3 @@ export function Success() {
     </>
   )
 }
-
-
-
-// import { MapPin, Timer, CurrencyDollar } from 'phosphor-react'
-// import { Container } from './styles'
-// import carrinho from '../../assets/carrinho.svg'
-
-
-// export function Success() {
-//     return (
-//         <Container>
-//             <h1>Uhu! Pedido Confirmado</h1>
-//             <h2>Agora é só aguardar que logo seu produto chegará até você.</h2>
-            
-//             <div className='content'>
-
-//                 <div className='purchase'>
-//                     <ul>
-//                         <li> <MapPin size={32}/>  Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
-                        
-//                             <p>Farrapos - Porto Alegre - RS</p> 
-                        
-//                         </li>
-
-//                         <li> <Timer size={32}/>  Previsão de entrega 
-//                             <br />
-//                             <p><strong>20 min - 30 min</strong> </p> 
-//                         </li>
-
-//                         <li> <CurrencyDollar size={32}/>  Método de pagto
-//                             <br />
-//                             <p><strong>Cartão de crédito</strong></p>
-//                         </li>
-
-//                     </ul>
-//                 </div>
-
-//                 <img src={carrinho}/>
-
-//             </div>
-                                              
-//         </Container>
-//     )
-
-// }
-
-
-
-

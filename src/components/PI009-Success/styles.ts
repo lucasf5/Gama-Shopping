@@ -4,17 +4,14 @@ export const SuccessContainerPrincipal = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 2%;
 `
 
 export const TitleContainer = styled.div`
-  max-width: 75rem;
-  margin: 6rem auto 0;
+  margin: 6rem auto 0 auto;
+  text-align: center;
 
   @media (max-width: 450px) {
-    font-size: 2rem;
-    text-align: center;
-    justify-content: center;
-
   }
 
   h1 {
@@ -23,30 +20,26 @@ export const TitleContainer = styled.div`
     line-height: 1.3;
     font-weight: 800;
     font-size: 2rem;
-  
   }
-  
 
   p {
     font-size: 1.25rem;
+    text-align: center;
     line-height: 1.3;
     margin-top: 0.25rem;
 
     @media (max-width: 450px) {
     font-size: 1rem;
-    text-align: center;
-    justify-content: center;
-    max-width: 90vw;
   }
   }
 `
 
 export const SuccessContainer = styled.main`
-  max-width: 74rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 6.375rem;
+
   margin: 2rem auto;
 
   span {
@@ -55,8 +48,11 @@ export const SuccessContainer = styled.main`
 
 
 
-  @media (max-width: 450px) {
+  @media (max-width: 1030px) {
+    display: flex;
+    justify-content: center; 
     font-size: 1rem;
+    width: 100%;
     img{
       display:none
     }

@@ -7,8 +7,6 @@ export const Container = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 1rem 6rem;
-    background-color: aliceblue;
-    position: absolute;
     height: 5rem;
     width: 100%;
     
@@ -20,20 +18,31 @@ export const Container = styled.header`
 
     .localizacao{
         display: flex;
-        position: inline;
         align-items: center;
+        gap: 1rem;
 
         .cidade{
-            margin: 0 0.5rem;
-            background-color: #cccccc;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+
+            height: 38px;
+            width: 143px;
+            background-color: ${props => props.theme['purple-100']};
+            color: ${props => props.theme['purple-900']};
             padding: 0.2rem;
             border-radius: 5%;
-            
-        }
 
-            span {
-                margin-left:0.2rem;
+            img{
+                width: 15.13px;
             }
+        }
+        
+        span {
+            margin-left:0.2rem;
+        }
     }
 
 `

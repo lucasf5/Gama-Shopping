@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  ReactModal{
+    display: flex;
+  }
+`;
 
 export const OptionsContainer = styled.div`
   margin: 5rem auto 2rem;

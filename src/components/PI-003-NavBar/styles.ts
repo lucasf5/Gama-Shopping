@@ -37,16 +37,3 @@ export const Container = styled.header`
     }
 
 `
-
-
-
-
-// .logogama {
-//     height: 150px;
-//     width: 120px;
-// }
-
-// .localizacao {
-//     height: 50px;
-//     width: 120px;
-// }

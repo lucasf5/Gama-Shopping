@@ -21,6 +21,7 @@ interface ProductFormatted extends IProduct {
 
 const LinkFornecedor = () => {
   const [products, setProducts] = useState<ProductFormatted[]>([]);
+  const stores = ["Apple", "Samsung", "Logitech", "Goldentec"];
 
   useEffect(() => {
     async function loadProducts() {
@@ -104,10 +105,9 @@ const LinkFornecedor = () => {
         </aside>
       </Options>
       <Stores>
-        <span>Apple</span>
-        <span>Samsung</span>
-        <span>Apple</span>
-        <span>Samsung</span>
+        {stores.map((store) => (
+          <span>{store}</span>
+        ))}
       </Stores>
       <CardsContainer>
         <Cards />

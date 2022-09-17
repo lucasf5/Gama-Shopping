@@ -1,39 +1,41 @@
 import styled from 'styled-components'
 
 export const Container = styled.header`
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 6rem;
-    background-color: aliceblue;
-    position: absolute;
     height: 5rem;
-    width: 100%;
+    width: 90vw;
+    margin: 1rem auto;
     
-
-    img{
-        height: 3.5rem;
-        width: 3.5rem;
+    img {
+        width: 4rem;
     }
 
     .localizacao{
         display: flex;
-        position: inline;
+        gap: 1rem;
         align-items: center;
+        color: ${(props) => props.theme['yellow-900']};
 
         .cidade{
+            display: flex;
+            align-items: center;
             margin: 0 0.5rem;
-            background-color: #cccccc;
-            padding: 0.2rem;
-            border-radius: 5%;
-            
+            background-color: ${props => props.theme['yellow-100']};
+            padding: .5rem;
+            border-radius: 8px;  
+
+            svg {
+                margin-right: 0.5rem;
+            }
         }
 
-            span {
-                margin-left:0.2rem;
-            }
+
+
+           
     }
 
 `

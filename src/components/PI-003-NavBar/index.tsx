@@ -7,15 +7,15 @@ import { Container } from './styles'
 export function Navigation() {
     return (
         <Container>
-            <img src={Logo_Navbar}/>
+            <img src={Logo_Navbar} />
             <div className='localizacao'>
                 <div className='cidade'>
-                    <MapPinLine/>
+                    <MapPinLine size={20} weight="fill" />
                     <span>São Paulo</span>
                 </div>
-                <ButtonCart/>
+                <ButtonCart />
             </div>
-                                              
+
         </Container>
     )
 

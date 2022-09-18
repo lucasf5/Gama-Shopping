@@ -15,11 +15,19 @@ interface ICartContextData {
   removeProduct: (productId: number) => void
   updateProductAmount: ({ productId, amount }: IUpdateProductAmount) => void
   createNewAdress: (data: ICreateAdressData) => void
+  isOpen: boolean
+  setIsOpen: (isOpen: boolean) => void
+  cep: string
+  setCep: (cep: string) => void
 }
 
 const CartContext = createContext<ICartContextData>({} as ICartContextData)
 
 export function CartProvider({ children }: CartProviderProps) {
+  // CEP + MODAL
+  const [isOpen, setIsOpen] = useState(true);
+  const [cep, setCep] = useState('');
+
   const [adress, setAdress] = useState<IAdress[]>([])
   const [activeAdressId, setActiveAdresId] = useState<string | null>(null)
 
@@ -161,6 +169,10 @@ export function CartProvider({ children }: CartProviderProps) {
         updateProductAmount,
         createNewAdress,
         activeAdress,
+        isOpen,
+        setIsOpen,
+        cep, 
+        setCep
       }}
     >
       {children}

@@ -16,26 +16,31 @@ export const Container = styled.header`
 
     .localizacao{
         display: flex;
-        gap: 1rem;
         align-items: center;
-        color: ${(props) => props.theme['yellow-900']};
+        gap: 1rem;
 
         .cidade{
             display: flex;
+            flex-direction: row;
+            justify-content: center;
             align-items: center;
-            margin: 0 0.5rem;
-            background-color: ${props => props.theme['yellow-100']};
-            padding: .5rem;
-            border-radius: 8px;  
+            gap: 4px;
 
-            svg {
-                margin-right: 0.5rem;
+            height: 38px;
+            width: 143px;
+            background-color: ${props => props.theme['purple-100']};
+            color: ${props => props.theme['purple-900']};
+            padding: 0.2rem;
+            border-radius: 5%;
+
+            img{
+                width: 15.13px;
             }
         }
-
-
-
-           
+        
+        span {
+            margin-left:0.2rem;
+        }
     }
 
 `

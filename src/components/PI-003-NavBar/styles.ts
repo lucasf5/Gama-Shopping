@@ -1,19 +1,17 @@
 import styled from 'styled-components'
 
 export const Container = styled.header`
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 6rem;
     height: 5rem;
-    width: 100%;
+    width: 90vw;
+    margin: 1rem auto;
     
-
-    img{
-        height: 3.5rem;
-        width: 3.5rem;
+    img {
+        width: 4rem;
     }
 
     .localizacao{

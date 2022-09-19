@@ -4,9 +4,9 @@ export const PayMethodContainer = styled.div`
     box-sizing: border-box;
     background-color: ${props => props.theme["gray-200"]};
     max-width: 740px;
-    margin: 20px;
     padding: 40px;
-    border-radius: 10px;
+    border-radius: 0 50px 0 50px;
+
     
     .header{
         display: grid;
@@ -19,15 +19,22 @@ export const PayMethodContainer = styled.div`
         display:flex;
         align-items:center;
         justify-content:space-around;
+        margin-top: 30px;
+        gap: 5px;
     }
     .button{
         display:flex;
         align-items: center;
-        width: 200px;
+        width: 100%;
         height: 50px;
-        margin-top: 30px;
         border-radius: 5px;
         background-color: ${props => props.theme["gray-300"]};
+    }
+    @media (max-width: 860px) {
+        .payOptionsContainer{
+            display: grid;
+            grid-template-columns: 100%;
+        }
     }
     .button:hover{
         cursor: pointer;

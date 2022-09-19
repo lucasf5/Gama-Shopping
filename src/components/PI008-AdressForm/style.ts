@@ -3,22 +3,30 @@ import styled from "styled-components";
 export const AdressContainer = styled.div`
     max-width: 740px;
     background-color: ${props => props.theme["gray-200"]};
-    margin: 20px;
     padding: 40px;
-    border-radius: 10px;
+    border-radius: 0 50px 0 50px;
     
     .header{
         display: grid;
         grid-template-columns: min-content auto;
     }
     .header .icon{
-        color: ${props => props.theme["yellow-900"]}
+        color: ${props => props.theme["purple-500"]}
     }
     form{
         display: grid;
         grid-template-columns: 200px auto 60px;
         grid-gap: 16px;
         margin-top: 30px;
+    }
+    @media (max-width: 900px) {
+        form{
+            display: block;
+        }
+        input{
+            width: 100%;
+            margin-top: 16px;
+        }
     }
     #cep{
         grid-column: 1; 

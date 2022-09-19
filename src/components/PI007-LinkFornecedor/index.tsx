@@ -11,44 +11,64 @@ import {
 } from "./styles";
 import { formatPrice } from "../../util/format";
 import { api } from "../../services/api";
-import { IProduct } from "../../types";
+import { IJson, IProduct } from "../../types";
 
 import { Navigation } from "../PI-003-NavBar";
 import { Cards } from "../PI006-Card";
 
 import classNames from "classnames";
 
-interface ProductFormatted extends IProduct {
-  priceFormatted: string;
-}
-
 const LinkFornecedor = () => {
-  const [products, setProducts] = useState<ProductFormatted[]>([]);
+  const [names, setNames] = useState<string[]>([]);
   const [seeMore, setSeeMore] = useState(false);
   const [stores, setStores] = useState([]);
+  const [nameOfOption, setNameOfOption] = useState("");
+  const [products, setProducts] = useState<IProduct[]>([]);
+
+  const handleGetOptions = async (name: string) => {
+    await api.get(`/accounts`).then((response) => {
+      const data = response.data.filter((item: IJson) => {
+        return item.nome === name;
+      });
+
+      setStores([data[0].products]);
+    });
+
+    let storesArray = [];
+
+    stores.map((item: IJson) => {
+      return storesArray.push(item);
+    });
+
+    setProducts(storesArray[0]);
+
+  };
+
+  const handleChangeOptions = (e: any) => {
+    event?.preventDefault();
+    const { title } = e.target;
+    setNameOfOption(title);
+    handleGetOptions(title);
+  };
 
   useEffect(() => {
-    async function loadProducts() {
-      const response = await api.get<IProduct[]>("products");
-
-      const data = response.data.map((product: IProduct) => ({
-        ...product,
-        priceFormatted: formatPrice(product.price),
-      }));
-
-      setProducts(data);
-    }
-
     async function loadStores() {
       const response = await api.get("/accounts");
+      let namesP: string[] = [];
 
-      setStores(response.data);
+      response.data.map((dados: IJson) => {
+        namesP.push(dados.nome);
+      });
 
+      const namesFilter = namesP.filter((item, index) => {
+        return namesP.indexOf(item) === index;
+      });
+
+      setNames(namesFilter);
     }
 
-    loadProducts();
     loadStores();
-  }, []);
+  }, [nameOfOption]);
 
   return (
     <Container>
@@ -97,8 +117,18 @@ const LinkFornecedor = () => {
         <X size={32} onClick={() => setSeeMore(!seeMore)} className="List" />
       )}
       <Stores>
-        {stores.map((store) => (
-          <span>{store.name}</span>
+        {names.map((name, index) => (
+          <a
+            onClick={handleChangeOptions}
+            key={`${index}+${name}`}
+            title={name}
+            className={classNames({
+              OptionsName: true,
+              active: nameOfOption === name,
+            })}
+          >
+            {name}
+          </a>
         ))}
       </Stores>
       <ContainerProducts>
@@ -115,7 +145,7 @@ const LinkFornecedor = () => {
               </span>
               <div className="input_options">
                 <div>
-                  <input type="radio" className="radio_style" name=""/>
+                  <input type="radio" className="radio_style" name="" />
                   <label>Headsets</label>
                 </div>
               </div>

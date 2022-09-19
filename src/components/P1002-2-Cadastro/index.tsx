@@ -16,6 +16,7 @@ const Cadastro = () => {
   const Navigate = useNavigate();
   const [cadastros, setCadastros] = useState<IEventEmailCadastro[]>([]);
   const [dados, setDados] = useState<IEventEmailCadastro>({
+    nome: "",
     email: "",
     senha: "",
     confirmarSenha: "",
@@ -39,7 +40,7 @@ const Cadastro = () => {
 
   const RealizaCadastro = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const { email, senha, confirmarSenha } = dados;
+    const { nome, email, senha, confirmarSenha } = dados;
 
     const possuiCadastro = cadastros.find(
       (cadastro) => cadastro.email === email
@@ -55,6 +56,7 @@ const Cadastro = () => {
           toast.error("Senhas não conferem");
         } else {
           const response = await api.post("/accounts", {
+            nome,
             email,
             password: senha,
             id: uuidv4(),
@@ -82,6 +84,18 @@ const Cadastro = () => {
           <img src={GamaShopping} alt="Logo Gama Shopping em roxo" />
           <h1>Bem vindo(a)!</h1>
           <h3>Cadastre-se usando email.</h3>
+          <label htmlFor="email">
+            Nome:
+            <input
+              className="inputText"
+              id="nome"
+              type="text"
+              name="nome"
+              value={dados.nome}
+              onChange={handleChange}
+              required
+            />
+          </label>
           <label htmlFor="email">
             E-mail:
             <input

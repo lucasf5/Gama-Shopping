@@ -52,6 +52,7 @@ export interface IEventEmail {
   senha: string
 }
 export interface IEventEmailCadastro {
+  nome: string
   email: string
   senha: string
   confirmarSenha: string
@@ -75,4 +76,21 @@ export interface IFormProps {
   price: string;
   urlImage: string;
   payment: string;
+}
+
+export interface IJson {
+  nome: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  isSeller: boolean;
+  id: string;
+  products: {
+    id: number;
+    nome: string;
+    options: string;
+    description: string;
+    price: number;
+    image: string;
+  }
 }

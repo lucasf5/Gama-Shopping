@@ -127,6 +127,16 @@ export const Stores = styled.div`
     font-size: 2.5rem;
     font-weight: bold;
   }
+
+  .OptionsName{
+    cursor: pointer;
+    &.active {
+      color: #c47f17;
+    }
+    &:hover {
+      color: #c47f17;
+    }
+  }
   @media (max-width: 915px) {
     width: 100%;
     span {

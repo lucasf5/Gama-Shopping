@@ -1,25 +1,48 @@
-import { Package } from "phosphor-react";
 import styled from "styled-components";
+
+
+export const ContainerProducts = styled.section`
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+
+  @media (max-width: 915px) {
+    flex-direction: column;
+  }
+`
 
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+
+  .List {
+    display: none;
+  }
 
   @media (max-width: 915px) {
     width: 100%;
+
+    .List {
+      display: flex;
+      position: fixed;
+      left: 0;
+      top: 56%;
+      cursor: pointer;
+    }
   }
 `;
 
 export const AdContainer = styled.section`
   display: flex;
-  justify-content: center;
-  width: 55%;
+  justify-content: space-between;
+  width: 80%;
   align-items: center;
-  margin-top: 2rem;
 
   h1 {
     font-size: 3rem;
+    max-width: 588px;
   }
   .phrase {
     margin-top: 1rem;
@@ -41,47 +64,33 @@ export const AdContainer = styled.section`
     }
   }
 
-  .cart_icon {
-    color: white;
-    background-color: #c47f17;
+  .icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 3rem;
-    height: 3rem;
+    padding: 8px;
+    gap: 8px;
     border-radius: 50%;
+  }
+
+  .cart_icon {
+    color: white;
+    background-color: #c47f17;
   }
   .package_icon {
     color: white;
     background-color: #574f4d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
   }
 
   .timer_icon {
     color: white;
     background-color: #dbac2c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
   }
 
   .coffee_icon {
     color: white;
     background-color: #8047f8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
+
   }
   @media (max-width: 915px) {
     width: 100%;
@@ -145,7 +154,6 @@ export const Options = styled.aside`
   align-items: center;
   gap: 6rem;
 
-  position: absolute;
   width: 15rem;
   height: 15rem;
   left: 8rem;
@@ -155,7 +163,9 @@ export const Options = styled.aside`
   border-radius: 6px;
 
   .options span {
-    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
   }
   .input_options {
     display: flex;
@@ -183,12 +193,16 @@ export const Options = styled.aside`
     border: 1px solid #8047f8;
   }
   @media (max-width: 915px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    left: 0;
-    top: 0;
-    margin-top: 2rem;
+    position: fixed;
+    left: -500px;
+
+    &.seeMore {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      left: 0;
+      transition: 0.5s ease-in-out;
+  }
   }
 `;

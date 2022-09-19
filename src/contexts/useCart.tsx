@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
 import { toast } from 'react-toastify'
 import { api } from '../services/api'
-import { IAdress, ICreateAdressData, IProduct, IUpdateProductAmount } from '../types'
+import { IAdress, ICreateAdressData, IEventEmail, IProduct, IUpdateProductAmount } from '../types'
 
 interface CartProviderProps {
   children: ReactNode
@@ -19,6 +19,8 @@ interface ICartContextData {
   setIsOpen: (isOpen: boolean) => void
   cep: string
   setCep: (cep: string) => void
+  dados: IEventEmail
+  setDados: (dados: IEventEmail) => void
 }
 
 const CartContext = createContext<ICartContextData>({} as ICartContextData)
@@ -27,6 +29,12 @@ export function CartProvider({ children }: CartProviderProps) {
   // CEP + MODAL
   const [isOpen, setIsOpen] = useState(true);
   const [cep, setCep] = useState('');
+
+  // Login
+    const [dados, setDados] = useState<IEventEmail>({
+    email: "",
+    senha: "",
+  });
 
   const [adress, setAdress] = useState<IAdress[]>([])
   const [activeAdressId, setActiveAdresId] = useState<string | null>(null)
@@ -172,7 +180,9 @@ export function CartProvider({ children }: CartProviderProps) {
         isOpen,
         setIsOpen,
         cep, 
-        setCep
+        setCep,
+        dados,
+        setDados,
       }}
     >
       {children}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ShoppingCart, Timer, Package, Coffee } from "phosphor-react";
+import { ShoppingCart, Timer, Package, Coffee, List, X } from "phosphor-react";
 import logo from "../../assets/logo.svg";
 import {
   Container,
@@ -7,6 +7,7 @@ import {
   Stores,
   CardsContainer,
   Options,
+  ContainerProducts,
 } from "./styles";
 import { formatPrice } from "../../util/format";
 import { api } from "../../services/api";
@@ -15,13 +16,16 @@ import { IProduct } from "../../types";
 import { Navigation } from "../PI-003-NavBar";
 import { Cards } from "../PI006-Card";
 
+import classNames from "classnames";
+
 interface ProductFormatted extends IProduct {
   priceFormatted: string;
 }
 
 const LinkFornecedor = () => {
   const [products, setProducts] = useState<ProductFormatted[]>([]);
-  const stores = ["Apple", "Samsung", "Logitech", "Goldentec"];
+  const [seeMore, setSeeMore] = useState(false);
+  const [stores, setStores] = useState([]);
 
   useEffect(() => {
     async function loadProducts() {
@@ -35,9 +39,16 @@ const LinkFornecedor = () => {
       setProducts(data);
     }
 
+    async function loadStores() {
+      const response = await api.get("/accounts");
+
+      setStores(response.data);
+
+    }
+
     loadProducts();
+    loadStores();
   }, []);
-  console.log(products);
 
   return (
     <Container>
@@ -51,25 +62,25 @@ const LinkFornecedor = () => {
           </p>
           <div className="items_container">
             <div className="items">
-              <span className="cart_icon">
+              <span className="icon cart_icon">
                 <ShoppingCart size={24} />
               </span>
               <p>Compras simples e segura</p>
             </div>
             <div className="items">
-              <span className="package_icon">
+              <span className="icon package_icon">
                 <Package size={24} />
               </span>
               <p>Embalagem mantém o produto intacto</p>
             </div>
             <div className="items">
-              <span className="timer_icon">
+              <span className="icon timer_icon">
                 <Timer size={24} />
               </span>
               <p>Entrega rápida e rastreada</p>
             </div>
             <div className="items">
-              <span className="coffee_icon">
+              <span className="icon coffee_icon">
                 <Coffee size={24} />
               </span>
               <p>O produto chega intacto até você</p>
@@ -80,38 +91,41 @@ const LinkFornecedor = () => {
           <img src={logo} alt="" />
         </aside>
       </AdContainer>
-      <Options>
-        <aside>
-          <div className="options">
-            <span>
-              <Package size={24} />
-              Opções
-            </span>
-            <div className="input_options">
-              <div>
-                <input type="radio" className="radio_style" />
-                <label>Headsets</label>
-              </div>
-              <div>
-                <input type="radio" className="radio_style" />
-                <label>Acessórios</label>
-              </div>
-              <div>
-                <input type="radio" className="radio_style" />
-                <label>Celulares</label>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </Options>
+      {!seeMore ? (
+        <List size={32} onClick={() => setSeeMore(!seeMore)} className="List" />
+      ) : (
+        <X size={32} onClick={() => setSeeMore(!seeMore)} className="List" />
+      )}
       <Stores>
         {stores.map((store) => (
-          <span>{store}</span>
+          <span>{store.name}</span>
         ))}
       </Stores>
-      <CardsContainer>
-        <Cards />
-      </CardsContainer>
+      <ContainerProducts>
+        <Options
+          className={classNames({
+            seeMore: seeMore,
+          })}
+        >
+          <aside>
+            <div className="options">
+              <span>
+                <Package size={24} />
+                Opções
+              </span>
+              <div className="input_options">
+                <div>
+                  <input type="radio" className="radio_style" name=""/>
+                  <label>Headsets</label>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </Options>
+        <CardsContainer>
+          <Cards />
+        </CardsContainer>
+      </ContainerProducts>
     </Container>
   );
 };

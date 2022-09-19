@@ -13,11 +13,10 @@ import Shield from "../../assets/imgs/Shield-Fail.svg";
 import { api } from "../../services/api";
 import { IEventEmailRegister, IEventEmail, ICadastro } from "../../types";
 import toast, { Toaster } from "react-hot-toast";
+import { useCart } from "../../contexts/useCart";
 const Login = () => {
-  const [dados, setDados] = useState<IEventEmail>({
-    email: "",
-    senha: "",
-  });
+
+  const {dados, setDados} = useCart();
 
   const [cadastros, setCadastros] = useState<ICadastro[]>([]);
   const [alert, setAlert] = useState(false);

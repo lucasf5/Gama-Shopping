@@ -3,13 +3,10 @@ import styled from 'styled-components'
 export const Container = styled.header`
 
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 6rem;
     height: 5rem;
-    width: 100%;
-    
+    width: 80%;
 
     img{
         height: 3.5rem;

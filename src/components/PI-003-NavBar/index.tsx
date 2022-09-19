@@ -27,15 +27,15 @@ export function Navigation() {
     }, [])
     return (
         <Container>
-            <img src={Logo_Navbar}/>
+            <img src={Logo_Navbar} />
             <div className='localizacao'>
                 <div className='cidade' onClick={()=> setIsOpen(true)}>
                     <img src={Point}/>
                     <span>{adress}</span>
                 </div>
-                <ButtonCart/>
+                <ButtonCart />
             </div>
-                                              
+
         </Container>
     )
 

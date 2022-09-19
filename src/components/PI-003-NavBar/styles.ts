@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 
 export const Container = styled.header`
-
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 5rem;
-    width: 80%;
-
-    img{
-        height: 3.5rem;
-        width: 3.5rem;
+    width: 90vw;
+    margin: 1rem auto;
+    
+    img {
+        width: 4rem;
     }
 
     .localizacao{

@@ -7,6 +7,7 @@ interface ButtonCartProps {
 }
 
 export function ButtonCart({ onUpdateQuantity }: ButtonCartProps) {
+
   return (
     <ButtonContainer>
       <button type="button" onClick={onUpdateQuantity}>

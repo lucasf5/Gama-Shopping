@@ -1,7 +1,7 @@
-import { Container } from "./styles";
-
+import LoginComponente from "../../components/PI002-Login";
 export function Login() {
+
   return (
-    <Container>Login</Container>
-  )
+    <LoginComponente />
+  );
 }

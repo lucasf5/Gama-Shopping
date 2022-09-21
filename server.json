@@ -1,4 +1,234 @@
 {
+  "accounts": [
+    {
+      "nome": "Logitech",
+      "email": "Logitech@gmail.com",
+      "password": "logitech",
+      "id": "d13730c7-3034-460b-9592-a8d7874bdcff",
+      "isSeller": true,
+      "products": [
+        {
+          "id": "1",
+          "nome": "Produto 1",
+          "options": "Headsets",
+          "price": 10,
+          "description": "Descrição do produto 1",
+          "image": "https://edifier.com.br/pub/media/catalog/product/cache/f1731b22860b0086fc34e14d5ee03543/g/2/g2ii_cat_1.jpg"
+        },
+        {
+          "id": "2",
+          "nome": "Produto 2",
+          "options": "Microfone",
+          "price": 20,
+          "description": "Descrição do produto 2",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "3",
+          "nome": "Produto 3",
+          "options": "Headsets",
+          "price": 30,
+          "description": "Descrição do produto 3",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "4",
+          "nome": "Produto 4",
+          "options": "Microfone",
+          "price": 40,
+          "description": "Descrição do produto 4",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "5",
+          "nome": "Produto 5",
+          "options": "Teclados",
+          "price": 50,
+          "description": "Descrição do produto 5",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "6",
+          "nome": "Produto 6",
+          "options": "Teclados",
+          "price": 60,
+          "description": "Descrição do produto 6",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        }
+      ]
+    },
+    {
+      "nome": "Samsung",
+      "email": "Samsung",
+      "password": "samsung",
+      "id": "d13730c7-3034-460b-9592-a8d7874bdcff",
+      "isSeller": true,
+      "products": [
+        {
+          "id": "7",
+          "nome": "Produto 7",
+          "options": "Headsets",
+          "price": 70,
+          "description": "Descrição do produto 7",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "8",
+          "nome": "Produto 8",
+          "options": "Microfone",
+          "price": 80,
+          "description": "Descrição do produto 8",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "9",
+          "nome": "Produto 9",
+          "options": "Headsets",
+          "price": 90,
+          "description": "Descrição do produto 9",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "10",
+          "nome": "Produto 10",
+          "options": "Microfone",
+          "price": 100,
+          "description": "Descrição do produto 10",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "11",
+          "nome": "Produto 11",
+          "options": "Teclados",
+          "price": 110,
+          "description": "Descrição do produto 11",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "12",
+          "nome": "Produto 12",
+          "options": "Teclados",
+          "price": 120,
+          "description": "Descrição do produto 12",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        }
+      ]
+    },
+    {
+      "nome": "Microsoft",
+      "email": "Microsoft",
+      "password": "microsoft",
+      "id": "d13730c7-3034-460b-9592-a8d7874bdcff",
+      "isSeller": true,
+      "products": [
+       {
+          "id": "13",
+          "nome": "Produto 13",
+          "options": "Headsets",
+          "price": 130,
+          "description": "Descrição do produto 13",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "14",
+          "nome": "Produto 14",
+          "options": "Microfone",
+          "price": 140,
+          "description": "Descrição do produto 14",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "15",
+          "nome": "Produto 15",
+          "options": "Headsets",
+          "price": 150,
+          "description": "Descrição do produto 15",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "16",
+          "nome": "Produto 16",
+          "options": "Microfone",
+          "price": 160,
+          "description": "Descrição do produto 16",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "17",
+          "nome": "Produto 17",
+          "options": "Teclados",
+          "price": 170,
+          "description": "Descrição do produto 17",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "18",
+          "nome": "Produto 18",
+          "options": "Teclados",
+          "price": 180,
+          "description": "Descrição do produto 18",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        }
+      ]
+    },
+    {
+      "nome": "Apple",
+      "email": "Apple",
+      "password": "apple",
+      "id": "d13730c7-3034-460b-9592-a8d7874bdcff",
+      "isSeller": true,
+      "products": [
+        {
+          "id": "19",
+          "nome": "Produto 19",
+          "options": "Headsets",
+          "price": 190,
+          "description": "Descrição do produto 19",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "20",
+          "nome": "Produto 20",
+          "options": "Microfone",
+          "price": 200,
+          "description": "Descrição do produto 20",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "21",
+          "nome": "Produto 21",
+          "options": "Headsets",
+          "price": 210,
+          "description": "Descrição do produto 21",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "22",
+          "nome": "Produto 22",
+          "options": "Microfone",
+          "price": 220,
+          "description": "Descrição do produto 22",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "23",
+          "nome": "Produto 23",
+          "options": "Teclados",
+          "price": 230,
+          "description": "Descrição do produto 23",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        {
+          "id": "24",
+          "nome": "Produto 24",
+          "options": "Teclados",
+          "price": 240,
+          "description": "Descrição do produto 24",
+          "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        }
+      ]
+    }
+  ],
   "stock": [
     {
       "id": 1,

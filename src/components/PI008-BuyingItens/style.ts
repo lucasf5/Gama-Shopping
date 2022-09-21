@@ -4,7 +4,7 @@ export const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${(props) => props.theme["gray-100"]};
+  background-color: ${(props) => props.theme["gray-200"]};
   border-bottom: 1px solid ${(props) => props.theme["gray-400"]};
   margin-top: 2rem;
 

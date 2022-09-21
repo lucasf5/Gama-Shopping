@@ -4,11 +4,12 @@ export const AdressContainer = styled.div`
     max-width: 740px;
     background-color: ${props => props.theme["gray-200"]};
     padding: 40px;
-    border-radius: 0 50px 0 50px;
+    border-radius: 0 40px 0 40px;
     
     .header{
-        display: grid;
-        grid-template-columns: min-content auto;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
     .header .icon{
         color: ${props => props.theme["purple-500"]}

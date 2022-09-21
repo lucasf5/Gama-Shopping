@@ -3,9 +3,16 @@ import BuyingItem from "../PI008-BuyingItens/intex";
 import { useCart } from "../../contexts/useCart";
 import { formatPrice } from "../../util/format";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const BuyingCart = () => {
-  const { cart } = useCart();
+  const { cart, formsEnvio } = useCart();
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  useEffect(() => {
+    const actionButton = formsEnvio.cep === ''
+    setIsDisabled(actionButton)
+  }, [formsEnvio])
 
   const navigate = useNavigate();
 
@@ -48,12 +55,12 @@ const BuyingCart = () => {
           <h3>Total</h3>
           <h3>{total}</h3>
         </div>
+        <button disabled={isDisabled} className="confirm-button" onClick={
+          () => {
+            navigate("/sucesso")
+          }
+        }>Confirmar Pedido</button>
       </div>
-      <div className="confirm-button" onClick={
-        () => {
-          navigate("/sucesso")
-        }
-      }>Confirmar Pedido</div>
     </CartContainer>
   );
 };

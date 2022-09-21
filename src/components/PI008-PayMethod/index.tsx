@@ -8,7 +8,7 @@ import classNames from "classnames";
 const PayMethod = () => {
     const [value, setValue] = useState("Cartão de Crédito");
 
-    const {setPagamento} = useCart();
+    const { setPagamento } = useCart();
 
     const handleRadio = (type: string) => {
         setValue(type);
@@ -21,7 +21,7 @@ const PayMethod = () => {
                 <CurrencyDollarSimple className="icon" size={32} />
                 <div>
                     <h2>Pagamento</h2>
-                    <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+                    <p>Escolha a forma que deseja pagar</p>
                 </div>
             </div>
             <div className="payOptionsContainer">

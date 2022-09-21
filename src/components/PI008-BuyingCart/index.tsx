@@ -26,7 +26,6 @@ const BuyingCart = () => {
     <CartContainer>
       {cart.length > 0 ? (
         cart.map((item) => {
-          console.log(item);
           return <BuyingItem product={item} />;
         })
       ) : (

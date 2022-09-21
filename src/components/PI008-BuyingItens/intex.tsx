@@ -1,9 +1,7 @@
 import { ItemContainer } from "./style";
 import { Trash, Plus, Minus } from "phosphor-react";
-import { useState } from "react";
 import { useCart } from "../../contexts/useCart";
 import { formatPrice } from "../../util/format";
-import { ButtonCart } from "../PI006-ButtonCart";
 
 export interface IProduct {
   product: {
@@ -20,7 +18,7 @@ export interface IProduct {
   };
 }
 
-const BuyingItem = ({ product }: IProduct) => {
+const BuyingItem = ({ product }: any) => {
   const { addProduct, removeProduct, cart, updateProductAmount } = useCart();
 
   function handleRemoveProduct(productId: number) {

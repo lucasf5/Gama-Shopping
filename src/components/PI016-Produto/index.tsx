@@ -11,8 +11,8 @@ import { Container, ContainerImage, ContainerProducts } from "./styles";
 const Produto = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [product, setProduct] = React.useState({});
-  const [pictures, setPictures] = React.useState([]);
+  const [product, setProduct] = React.useState<any>({});
+  const [pictures, setPictures] = React.useState<any>([]);
 
   const { addProduct } = useCart();
 

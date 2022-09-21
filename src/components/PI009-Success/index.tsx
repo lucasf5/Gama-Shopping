@@ -1,6 +1,7 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 // import { useCart } from '../../hooks/useCart'
 import deliveryImg from '../../assets/carrinho.svg'
+import { useCart } from '../../contexts/useCart'
 
 import {
   DeliveryContent,
@@ -13,7 +14,7 @@ import {
 } from './styles'
 
 export function Success() {
-//   const { activeAdress } = useCart()
+  const { formsEnvio, pagamento } = useCart()
 
   return (
     <SuccessContainerPrincipal>
@@ -28,10 +29,10 @@ export function Success() {
             <p>
               Entrega em{' '}
               <span>
-                Rua João Daniel Martinelli, 102
+                {formsEnvio.rua}
                 <br/>
               </span>
-                Farrapos - Porto Alegre - RS
+                {formsEnvio.bairro} - {formsEnvio.cidade} - {formsEnvio.uf}
                
               
             </p>
@@ -49,7 +50,7 @@ export function Success() {
             <CurrencyDollar size={32} />
             <p>
               Pagamento na entrega <br />
-              <b>Cartão de crédito</b>
+              <b>{pagamento}</b>
             </p>
           </PaymentContent>
         </InfoSuccessContainer>

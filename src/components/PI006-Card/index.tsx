@@ -1,101 +1,82 @@
-import { formatPrice } from '../../util/format'
-import { useCart } from '../../contexts/useCart'
-import { useEffect, useState } from 'react'
-import { api } from '../../services/api'
+import { formatPrice } from "../../util/format";
+import { useCart } from "../../contexts/useCart";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
 
-import { CardContainer } from './styles'
-import { ButtonCart } from '../PI006-ButtonCart'
-import { IProduct } from '../../types'
-
-
-interface ProductFormatted extends IProduct {
-  priceFormatted: string
-}
+import { CardContainer, CardCard, CardCardContainer } from "./styles";
+import { ButtonCart } from "../PI006-ButtonCart";
+import { IProduct, ProductFormatted } from "../../types";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface CartItemsAmount {
-  [key: number]: number
+  [key: number]: number;
 }
 
 export function Cards() {
-  const [products, setProducts] = useState<ProductFormatted[]>([])
-  const { addProduct, cart } = useCart()
+  const { setPesquisa, pesquisa, products, setProducts, addProduct } = useCart();
+
+  const navigate = useNavigate();
+
+  const handleOnUpdateQuantity = (productId: number) => {
+    addProduct(productId);
+  }
 
   useEffect(() => {
     async function loadProducts() {
-      const response = await api.get<IProduct[]>('products')
+      const response = await axios.get(
+        `https://api.mercadolibre.com/sites/MLB/search?q=$${pesquisa}`
+      );
 
-      const data = response.data.map((product: IProduct) => ({
-        ...product,
-        priceFormatted: formatPrice(product.price),
-      }))
+      const all = await axios.get(
+        'https://api.mercadolibre.com/sites/MLB/search?q=$all'
+      );
 
-      setProducts(data)
+      if (pesquisa === "") {
+        setProducts(all.data.results);
+      } else {
+        setProducts(response.data.results);
+      }
+
     }
 
-    loadProducts()
-  }, [])
+    loadProducts();
+  }, [pesquisa]);
 
-  function handleAddProduct(id: number) {
-    addProduct(id)
-  }
+  useEffect(() => {
+    async function loadProducts() {
+      const response = await axios.get(
+        "https://api.mercadolibre.com/sites/MLB/search?q=$all"
+      );
 
-  const cartItemsAmount = cart.reduce((sumAmount, product) => {
-    const newSumAmount = { ...sumAmount }
-    newSumAmount[product.id] = product.amount
+      const results = response.data.results;
 
-    return newSumAmount
-  }, {} as CartItemsAmount)
+      setProducts(results);
+    }
+    loadProducts();
+  }, []);
 
   return (
-    <>
-      {products.map(
-        ({
-          id,
-          imgUrl,
-          name,
-          description,
-          priceFormatted,
-          type,
-          type2,
-        }: ProductFormatted) => {
-          if (type2) {
-            return (
-              <CardContainer key={id}>
-                <img src={imgUrl} alt={description} />
-                <div>
-                  <span>{type}</span>
-                  <span>{type2}</span>
-                </div>
-                <h1>{name}</h1>
-                <p>{description}</p>
-
-                <div>
-                  <p>{priceFormatted}</p>
-                  <ButtonCart onUpdateQuantity={() => handleAddProduct(id)} />
-                  <span>{cartItemsAmount[id] || 0}</span>
-                </div>
-              </CardContainer>
-            )
-          } else {
-            return (
-              <CardContainer key={id}>
-                <img src={imgUrl} alt="" />
-                <div>
-                  <span>{type}</span>
-                </div>
-                <h1>{name}</h1>
-                <p>{description}</p>
-
-                <div>
-                  <p>{priceFormatted}</p>
-                  <ButtonCart onUpdateQuantity={() => handleAddProduct(id)} />
-                  <span>{cartItemsAmount[id] || 0}</span>
-                </div>
-              </CardContainer>
-            )
-          }
-        },
-      )}
-    </>
-  )
+    <CardCardContainer>
+      <input type="text" placeholder="Pesquisar" onChange={(e)=> setPesquisa(e.target.value)} value={pesquisa}/>
+      <CardCard>
+        {products.map(({ id, thumbnail, title, price }: ProductFormatted) => {
+          return (
+            <CardContainer key={id}>
+              <img src={thumbnail} alt=""  onClick={
+              () => {
+                navigate(`/produto/${id}`)
+              }
+            }/>
+              <h1>{title}</h1>
+              <article>
+                <p>{formatPrice(price)}</p>
+                <ButtonCart onUpdateQuantity={()=> handleOnUpdateQuantity(id)}/>
+              </article>
+            </CardContainer>
+          );
+        })}
+      </CardCard>
+    </CardCardContainer>
+  );
 }

@@ -1,15 +1,29 @@
 import styled from 'styled-components'
+import fundo from './fundo.svg'
+
+export const ContainerPrincipal = styled.div`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 25vh;
+    background-image: url(${fundo});
+    background-size: cover;
+`
 
 export const Container = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 5rem;
-    width: 90vw;
+    width: 80vw;
     margin: 1rem auto;
     
-    img {
-        width: 4rem;
+    .Logo {
+        width: 8rem;
+        background-color: #fff;
+        border-radius: 25px;
+        padding: 0.5rem;
+        cursor: pointer;
     }
 
     .localizacao{

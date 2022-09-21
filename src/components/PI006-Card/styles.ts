@@ -1,18 +1,27 @@
-import styled from 'styled-components'
+import { bounceInUp } from 'react-animations';
+import styled, { keyframes } from 'styled-components';
+
+const bounceAnimation = keyframes`${bounceInUp}`;
 
 export const CardContainer = styled.main`
-  min-width: 16rem;
-  max-height: 20rem;
-  background: ${(props) => props.theme['gray-100']};
-  margin: 2rem auto;
-  padding: 0.8rem;
-  border-top-right-radius: 36px;
-  border-bottom-left-radius: 36px;
+  animation: 1s ${bounceAnimation} ease-in-out;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 16rem;
+  margin-bottom: 1rem;
+  background-color: ${(props) => props.theme['gray-100']};
+  padding: 1rem;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${(props) => props.theme['gray-200']};
+  }
   img {
-    margin-top: -5rem;
     max-width: 10rem;
   }
   span {
@@ -32,7 +41,6 @@ export const CardContainer = styled.main`
     line-height: 1.3;
     font-family: 'Baloo 2', sans-serif;
     color: ${(props) => props.theme['gray-900']};
-    margin-top: 1.25rem;
   }
   p {
     max-width: 13.5rem;
@@ -40,14 +48,15 @@ export const CardContainer = styled.main`
     text-align: center;
     font-size: 0.875rem;
     line-height: 1.3;
-    margin-top: 0.5rem;
   }
-  div {
+  article {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin-top: 1rem;
     gap: 1rem;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
     p:nth-of-type(1) {
       font-family: 'Baloo 2', sans-serif;
       font-size: 1.2rem;
@@ -57,9 +66,59 @@ export const CardContainer = styled.main`
     }
     button {
       transition: background-color 0.2s ease-out;
+      background-color: ${(props) => props.theme['purple-500']};
       &:hover {
-        background-color: ${(props) => props.theme['purple-500']};
+        background-color: ${(props) => props.theme['purple-900']};
       }
     }
+      .buttonPrice {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background-color: #E6E5E5;
+        &__unity {
+          color: ${(props) => props.theme['purple-500']};
+          background-color: transparent;
+          border: 0;
+          padding: 0.4rem;
+          font-size: 0.875rem;
+          cursor: pointer;
+          &:hover {
+            background-color: ${(props) => props.theme['purple-500']};
+            color: #fff;
+          }
+        }
+        &__unity:first-child {
+          width: 1.3rem;
+        }
+      }
+  }
+`
+
+export const CardCard = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+`
+
+export const CardCardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  input {
+    width: 22rem;
+    height: 3rem;
+    border: none;
+    background-color: ${(props) => props.theme["gray-200"]};
+    font-size: 1rem;
+
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 1px 1px 2px 2px ${(props) => props.theme["purple-500"]};
+    transition: all 0.5s ease-in-out;
   }
 `

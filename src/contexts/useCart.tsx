@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
 import { toast } from 'react-toastify'
 import { api } from '../services/api'
-import { IAdress, ICreateAdressData, IEventEmail, IProduct, IUpdateProductAmount } from '../types'
+import { IAdress, ICreateAdressData, IEventEmail, IProduct, IUpdateProductAmount, ProductFormatted } from '../types'
 
 interface CartProviderProps {
   children: ReactNode
@@ -21,6 +21,30 @@ interface ICartContextData {
   setCep: (cep: string) => void
   dados: IEventEmail
   setDados: (dados: IEventEmail) => void
+  pesquisa: string
+  setPesquisa: (pesquisa: string) => void
+  products: ProductFormatted[]
+  setProducts: (products: ProductFormatted[]) => void
+  formsEnvio: {
+    cep: string
+    rua: string
+    numero: string
+    complemento: string
+    bairro: string
+    cidade: string
+    uf: string
+  }
+  setFormsEnvio: (formsEnvio: {
+    cep: string
+    rua: string
+    numero: string
+    complemento: string
+    bairro: string
+    cidade: string
+    uf: string
+  }) => void
+  pagamento: string;
+  setPagamento: (pagamento: string) => void
 }
 
 const CartContext = createContext<ICartContextData>({} as ICartContextData)
@@ -36,17 +60,27 @@ export function CartProvider({ children }: CartProviderProps) {
     senha: "",
   });
 
+  // Pesquisa
+
+  const [formsEnvio, setFormsEnvio] = useState({
+    cep: "",	
+    rua: "",
+    numero: "",
+    complemento: "",
+    bairro: "",
+    cidade: "",
+    uf: "",
+  });
+
+  const [pagamento, setPagamento] = useState("")
+
+  const [products, setProducts] = useState<ProductFormatted[]>([]);
+  const [pesquisa, setPesquisa] = useState<string>("");
+
   const [adress, setAdress] = useState<IAdress[]>([])
   const [activeAdressId, setActiveAdresId] = useState<string | null>(null)
 
-  const [cart, setCart] = useState<IProduct[]>(() => {
-    const storagedCart = localStorage.getItem('@GamaShopping:cart')
-
-    if (storagedCart) {
-      return JSON.parse(storagedCart)
-    }
-    return []
-  })
+  const [cart, setCart] = useState<IProduct[]>([])
 
   const addProduct = async (productId: number) => {
     try {
@@ -55,20 +89,8 @@ export function CartProvider({ children }: CartProviderProps) {
         (product) => product.id === productId,
       )
 
-      const stock = await api.get(`/stock/${productId}`)
-      const stockAmount = stock.data.amount
-      const currentAmount = productExists ? productExists.amount : 0
-      const amount = currentAmount + 1
-
-      if (amount > stockAmount) {
-        toast.error('Quantidade solicitada fora de estoque')
-        return
-      }
-
-      if (productExists) {
-        productExists.amount = amount
-      } else {
-        const product = await api.get(`/products/${productId}`)
+      if (!productExists) {
+        const product = await api.get(`items/${productId}`)
 
         const newProduct = {
           ...product.data,
@@ -77,10 +99,8 @@ export function CartProvider({ children }: CartProviderProps) {
         updatedCart.push(newProduct)
       }
       setCart(updatedCart)
-      localStorage.setItem(
-        '@GamaShopping:cart',
-        JSON.stringify(updatedCart),
-      )
+      toast.success('Adicionado ao carrinho')
+
     } catch {
       toast.error('Erro na adição do produto')
     }
@@ -96,10 +116,6 @@ export function CartProvider({ children }: CartProviderProps) {
       if (productIndex >= 0) {
         updatedCart.splice(productIndex, 1)
         setCart(updatedCart)
-        localStorage.setItem(
-          '@GamaShopping:cart',
-          JSON.stringify(updatedCart),
-        )
       } else {
         throw Error()
       }
@@ -117,15 +133,6 @@ export function CartProvider({ children }: CartProviderProps) {
         return
       }
 
-      const stock = await api.get(`/stock/${productId}`)
-
-      const stockAmount = stock.data.amount
-
-      if (amount > stockAmount) {
-        toast.error('Quantidade solicitada fora de estoque')
-        return
-      }
-
       const updatedCart = [...cart]
       const productExists = updatedCart.find(
         (product) => product.id === productId,
@@ -134,10 +141,6 @@ export function CartProvider({ children }: CartProviderProps) {
       if (productExists) {
         productExists.amount = amount
         setCart(updatedCart)
-        localStorage.setItem(
-          '@GamaShopping:cart',
-          JSON.stringify(updatedCart),
-        )
       } else {
         throw Error()
       }
@@ -183,6 +186,14 @@ export function CartProvider({ children }: CartProviderProps) {
         setCep,
         dados,
         setDados,
+        setPesquisa,
+        pesquisa,
+        products,
+        setProducts,
+        formsEnvio,
+        setFormsEnvio,
+        pagamento,
+        setPagamento,
       }}
     >
       {children}

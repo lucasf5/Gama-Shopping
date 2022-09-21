@@ -1,8 +1,6 @@
 export interface IProduct {
   id: number
   name: string
-  type?: string
-  type2?: string
   description?: string
   price: number
   imgUrl: string
@@ -93,4 +91,10 @@ export interface IJson {
     price: number;
     image: string;
   }
+}
+
+export interface ProductFormatted extends IProduct {
+  priceFormatted: string;
+  thumbnail: string;
+  title: string;
 }

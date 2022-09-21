@@ -42,7 +42,7 @@ export const PayMethodContainer = styled.div`
     .button .icon{
         margin: 0 10px;
     }
-    .select-true{
+    .select{
         background-color: ${props => props.theme["purple-900"]};
         color:  ${props => props.theme["white"]};
     }

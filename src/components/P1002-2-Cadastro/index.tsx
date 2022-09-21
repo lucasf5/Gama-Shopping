@@ -11,6 +11,7 @@ import { api } from "../../services/api";
 import { IEventEmailRegister, IEventEmailCadastro } from "../../types";
 import toast, { Toaster } from "react-hot-toast";
 import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 
 const Cadastro = () => {
   const Navigate = useNavigate();
@@ -32,7 +33,7 @@ const Cadastro = () => {
 
   useEffect(() => {
     const getAllUsers = async () => {
-      const response = await api.get("/accounts");
+      const response = await axios.get("http://localhost:3333/accounts");
       setCadastros(response.data);
     };
     getAllUsers();
@@ -55,7 +56,7 @@ const Cadastro = () => {
         if (senha !== confirmarSenha) {
           toast.error("Senhas não conferem");
         } else {
-          const response = await api.post("/accounts", {
+          const response = await axios.post("http://localhost:3333/accounts", {
             nome,
             email,
             password: senha,

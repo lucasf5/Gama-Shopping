@@ -26,8 +26,8 @@ export const Container = styled.div`
     }
 
     .client-data{
-        display: grid;
-        grid-template-rows: auto auto;
-        grid-row-gap: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 `

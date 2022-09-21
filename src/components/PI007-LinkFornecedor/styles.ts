@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import bgImage from "../../assets/imgs/background.svg";
 
 
 export const ContainerProducts = styled.section`
+  width: 80%;
   display: flex;
   justify-content: space-between;
   gap: 5rem;
+  margin-top: 2rem;
 
   @media (max-width: 915px) {
     flex-direction: column;
@@ -28,7 +31,7 @@ export const Container = styled.section`
       display: flex;
       position: fixed;
       left: 0;
-      top: 56%;
+      top: 55%;
       cursor: pointer;
     }
   }
@@ -37,8 +40,10 @@ export const Container = styled.section`
 export const AdContainer = styled.section`
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
   align-items: center;
+  background-image: url(${bgImage});
+  padding: 1rem 5rem;
 
   h1 {
     font-size: 3rem;
@@ -94,8 +99,7 @@ export const AdContainer = styled.section`
   }
   @media (max-width: 915px) {
     width: 100%;
-    padding: 0 2rem;
-    margin-top: 5rem;
+    padding: 2rem;
     h1 {
       font-size: 1.75rem;
     }
@@ -146,11 +150,11 @@ export const Stores = styled.div`
 `;
 
 export const CardsContainer = styled.section`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
 
-  grid-gap: 2rem;
-  margin-top: 5rem;
   @media (max-width: 915px) {
     display: flex;
     flex-wrap: wrap;
@@ -160,12 +164,10 @@ export const CardsContainer = styled.section`
 export const Options = styled.aside`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6rem;
+  gap: 2rem;
+  padding: 2rem 1rem;
 
   width: 15rem;
-  height: 15rem;
   left: 8rem;
   top: 35rem;
 
@@ -186,6 +188,7 @@ export const Options = styled.aside`
   }
   .input_options label {
     padding: 1rem;
+    cursor: pointer;
   }
 
   .radio_style {
@@ -213,6 +216,14 @@ export const Options = styled.aside`
       position: fixed;
       left: 0;
       transition: 0.5s ease-in-out;
+    }
+
+    &.seeMore  aside {
+      
+      overflow: auto;
+
+      height: 600px;
+    }
   }
-  }
+
 `;

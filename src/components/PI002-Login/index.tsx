@@ -14,6 +14,7 @@ import { api } from "../../services/api";
 import { IEventEmailRegister, IEventEmail, ICadastro } from "../../types";
 import toast, { Toaster } from "react-hot-toast";
 import { useCart } from "../../contexts/useCart";
+import axios from "axios";
 const Login = () => {
 
   const {dados, setDados} = useCart();
@@ -37,7 +38,7 @@ const Login = () => {
 
   useEffect(() => {
     const getAllUsers = async () => {
-      const response = await api.get("/accounts");
+      const response = await axios.get("http://localhost:3333/accounts");
       setCadastros(response.data);
     };
     getAllUsers();

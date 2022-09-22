@@ -1,49 +1,60 @@
-import { useState } from 'react'
-import { Form } from './components/Form'
-import {
-  RegistrationContainer,
-  TitleContainer,
-  Container,
-  ProductContainer,
-} from './styles'
+import { CartContainer } from "./styles";
+import BuyingItem from "../PI008-BuyingItens/intex";
+import { useCart } from "../../contexts/useCart";
+import { formatPrice } from "../../util/format";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
+const RedirectCard = () => {
+  const { cart, formsEnvio, setCart } = useCart();
 
-export function ProductRegistration() {
-  const [data, setData] = useState({
-    name: '',
-    description: '',
-    price: '',
-    payment: '',
-    urlImage: '',
-    type: '',
-  })
+  const navigate = useNavigate();
 
+  const total = formatPrice(
+    cart.reduce((sumTotal, product) => {
+      return sumTotal + product.amount * product.price + 3.5;
+    }, 0)
+  );
+
+  const cartFormatted = cart.map((product) => ({
+    ...product,
+    priceFormatted: formatPrice(product.price),
+    subTotal: formatPrice(product.price * product.amount),
+  }));
 
   return (
-    <>
-      <TitleContainer>
-        <h2>Cadastre seu produto</h2>
-      </TitleContainer>
+    <CartContainer>
+      {cart.length > 0 ? (
+        cart.map((item) => {
+          return <BuyingItem product={item} />;
+        })
+      ) : (
+        <div className="empty-cart">Carrinho vazio</div>
+      )}
+      <div className="total-container">
+        <div className="itens-total">
+          <p>Total de Itens</p>
+          <p>
+            {cartFormatted.reduce((acc, product) => {
+              return acc + product.amount;
+            }, 0)}
+          </p>
+        </div>
+        <div className="total">
+          <h3>Total</h3>
+          <h3>{total}</h3>
+        </div>
+        <button
+          className="confirm-button"
+          onClick={() => {
+            navigate("/carrinho");
+          }}
+        >
+          Ir para carrinho
+        </button>
+      </div>
+    </CartContainer>
+  );
+};
 
-      <Container>
-
-        <RegistrationContainer>
-          <Form data={data} setData={setData} />
-        </RegistrationContainer>
-
-        <ProductContainer>
-          <div>
-            {data.urlImage ?
-              (<img src={data.urlImage} alt="" />) :
-              (<img src="https://www.lojaorionsaudenatural.com.br/arquivos/produto_sem_foto.gif" alt="" />)}
-            <h1>{data.name ? data.name : "nome do produto"}</h1>
-            <span>{data.type ? data.type : "tipo"}</span>
-            <p>{data.description ? data.description : "Descrição do produto"}</p>
-            <h3>{data.price ? data.price : "R$00,00"}</h3>
-            <h4>{data.payment ? data.payment : "Dinheiro"}</h4>
-          </div>
-        </ProductContainer>
-      </Container>
-    </>
-  )
-}
+export default RedirectCard;

@@ -3,24 +3,32 @@ import { useCart } from "../../contexts/useCart";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 
-import { CardContainer, CardCard, CardCardContainer } from "./styles";
+import {
+  CardContainer,
+  CardCard,
+  CardCardContainer,
+  Container,
+} from "./styles";
 import { ButtonCart } from "../PI006-ButtonCart";
 import { IProduct, ProductFormatted } from "../../types";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import BuyingCart from "../PI008-BuyingCart";
+import RedirectCard from "../PI011-CadastroProduto";
 
 interface CartItemsAmount {
   [key: number]: number;
 }
 
 export function Cards() {
-  const { setPesquisa, pesquisa, products, setProducts, addProduct } = useCart();
+  const { setPesquisa, pesquisa, products, setProducts, addProduct, cart } =
+    useCart();
 
   const navigate = useNavigate();
 
   const handleOnUpdateQuantity = (productId: number) => {
     addProduct(productId);
-  }
+  };
 
   useEffect(() => {
     async function loadProducts() {
@@ -29,7 +37,7 @@ export function Cards() {
       );
 
       const all = await axios.get(
-        'https://api.mercadolibre.com/sites/MLB/search?q=$macbook'
+        "https://api.mercadolibre.com/sites/MLB/search?q=$macbook"
       );
 
       if (pesquisa === "") {
@@ -37,7 +45,6 @@ export function Cards() {
       } else {
         setProducts(response.data.results);
       }
-
     }
 
     loadProducts();
@@ -57,26 +64,40 @@ export function Cards() {
   }, []);
 
   return (
-    <CardCardContainer>
-      <input type="text" placeholder="Pesquisar" onChange={(e)=> setPesquisa(e.target.value)} value={pesquisa}/>
-      <CardCard>
-        {products.map(({ id, thumbnail, title, price }: ProductFormatted) => {
-          return (
-            <CardContainer key={id}>
-              <img src={thumbnail} alt=""  onClick={
-              () => {
-                navigate(`/produto/${id}`)
-              }
-            }/>
-              <h1>{title}</h1>
-              <article>
-                <p>{formatPrice(price)}</p>
-                <ButtonCart onUpdateQuantity={()=> handleOnUpdateQuantity(id)}/>
-              </article>
-            </CardContainer>
-          );
-        })}
-      </CardCard>
-    </CardCardContainer>
+    <Container>
+      <CardCardContainer>
+        <input
+          type="text"
+          placeholder="Pesquisar"
+          onChange={(e) => setPesquisa(e.target.value)}
+          value={pesquisa}
+        />
+        <CardCard>
+          {products.map(({ id, thumbnail, title, price }: ProductFormatted) => {
+            return (
+              <CardContainer key={id}>
+                <img
+                  src={thumbnail}
+                  alt=""
+                  onClick={() => {
+                    navigate(`/produto/${id}`);
+                  }}
+                />
+                <h1>{title}</h1>
+                <article>
+                  <p>{formatPrice(price)}</p>
+                  <ButtonCart
+                    onUpdateQuantity={() => handleOnUpdateQuantity(id)}
+                  />
+                </article>
+              </CardContainer>
+            );
+          })}
+        </CardCard>
+      </CardCardContainer>
+      {cart.length > 0 && (
+        <RedirectCard />
+      )}
+    </Container>
   );
 }

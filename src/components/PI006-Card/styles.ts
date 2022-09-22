@@ -3,6 +3,15 @@ import styled, { keyframes } from "styled-components";
 
 const bounceAnimation = keyframes`${bounceInUp}`;
 
+export const Container = styled.div`
+  display: flex;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`
+
 export const CardContainer = styled.main`
   animation: 1s ${bounceAnimation} ease-in-out;
   display: flex;
@@ -13,13 +22,13 @@ export const CardContainer = styled.main`
   width: 16rem;
   margin-bottom: 1rem;
   background-color: ${(props) => props.theme["white"]};
-  box-shadow: inset 2px 2px 2px #cbced1, inset -2px -2px 2px white;
+  box-shadow: inset 2px 2px 2px white, inset -2px -2px 2px #cbced1;
   padding: 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
 
   &:hover {
-    box-shadow: inset 2px 2px 2px white, inset -2px -2px 2px #cbced1;
+    box-shadow: inset 2px 2px 2px #cbced1, inset -2px -2px 2px white;
     transition: 0.2s ease-in-out;
   }
   img {

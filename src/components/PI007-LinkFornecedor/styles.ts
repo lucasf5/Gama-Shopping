@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import bgImage from "../../assets/imgs/background.svg";
+// import BG2 from "../../assets/imgs/BG2.png";
+// import BG3 from "../../assets/imgs/Rectangle.png";
+import BG3 from "../../assets/imgs/et.png";
+import BG2 from "../../assets/imgs/blackSale.png";
 
 export const ContainerProducts = styled.section`
   width: 80%;
@@ -35,6 +39,34 @@ export const Container = styled.section`
     }
   }
 `;
+
+export const Power2 = styled.section`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 26.9rem;
+  padding: 1rem 5rem;
+  align-items: center;
+  background-image: url(${BG2});
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: center;
+`
+
+export const Power3 = styled.section`
+  padding: 1rem 5rem;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 26.9rem;
+  align-items: center;
+  background-image: url(${BG3});
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: center;
+  padding: 1rem 5rem;
+`
+
 
 export const AdContainer = styled.section`
   display: flex;

@@ -42,7 +42,7 @@ export function Success() {
             <Timer size={32} />
             <p>
               Previsão de entrega <br />
-              <b>20 min - 30 min</b>
+              <b>3 a 7 dias</b>
             </p>
           </TimeContent>
 

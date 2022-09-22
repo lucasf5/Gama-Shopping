@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const CartContainer = styled.div`
-    background-color: ${props => props.theme["gray-200"]};
+      background-color: ${(props) => props.theme["white"]};
+  box-shadow: inset -2px -2px 2px ${(props) =>
+        props.theme["purple-500"]}, inset 2px 2px 2px #cbced1;
     border-radius: 0 40px 0 40px;
     height: fit-content;
     padding: 0 40px 40px;

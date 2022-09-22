@@ -108,7 +108,7 @@ const LinkFornecedor = () => {
             <div className="options">
               <span>
                 <Package size={24} />
-                Opções
+                Categorias
               </span>
               <div className="input_options">
                 {categories ? (
@@ -118,7 +118,11 @@ const LinkFornecedor = () => {
                         type="radio"
                         id={categorie.id.toString()}
                         name="categoria"
-                        className="radio_style"
+                        className={
+                          classNames({
+                            radio_style: true,
+                          })
+                        }
                         value={categorie.id}
                         checked={nameOfOption === categorie.id.toString()}
                         onChange={handleChangeOptions}

@@ -1,4 +1,7 @@
-import styled from 'styled-components'
+import { pulse } from "react-animations";
+import styled, { keyframes } from "styled-components";
+
+const bounceAnimation = keyframes`${pulse}`;
 import fundo from './fundo.svg'
 
 export const ContainerPrincipal = styled.div`
@@ -30,6 +33,8 @@ export const Container = styled.header`
         border-radius: 25px;
         padding: 0.5rem;
         cursor: pointer;
+        animation: 1s ${bounceAnimation};
+
         :hover {
             box-shadow: inset 6px 6px 6px white, inset -6px -6px 6px #cbced1;
             transform: scale(1.05);

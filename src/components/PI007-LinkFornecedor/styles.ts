@@ -173,7 +173,8 @@ export const Options = styled.aside`
   left: 8rem;
   top: 35rem;
 
-  background: #f3f2f2;
+  background-color: ${(props) => props.theme["white"]};
+  box-shadow: inset 2px 2px 2px wheat, inset -2px -2px 2px #cbced1;
   border-radius: 6px;
 
   .options span {
@@ -181,6 +182,9 @@ export const Options = styled.aside`
     align-items: center;
     gap: 0.5rem;
     margin-left: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: ${(props) => props.theme["purple-900"]};
   }
   .input_options {
     display: flex;
@@ -189,6 +193,10 @@ export const Options = styled.aside`
 
     margin-top: 2rem;
     margin-left: 1rem;
+    &_active {
+      color: ${(props) => props.theme["green"]};
+      font-weight: bold;
+    }
   }
   .input_options label {
     padding: 1rem;

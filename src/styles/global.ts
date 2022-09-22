@@ -46,12 +46,13 @@ body::-webkit-scrollbar-thumb {
 
     }
     .react-modal-content{
+        z-index: 9999999999999;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
         width: 100%;
-        max-width: 50%;
+        max-width: 25%;
         background-color: ${(props) => props.theme["white-100"]};
         padding: 3rem;
         position: relative;

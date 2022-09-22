@@ -4,6 +4,15 @@ import bgImage from "../../assets/imgs/background.svg";
 // import BG3 from "../../assets/imgs/Rectangle.png";
 import BG3 from "../../assets/imgs/et.png";
 import BG2 from "../../assets/imgs/blackSale.png";
+import BG4 from "../../assets/imgs/BANNER1.png";
+import BG5 from "../../assets/imgs/BANNER2.png";
+
+export const ContainerSwiper = styled.div`
+  .mySwiper{
+    width: 100%;
+    height: 100%;
+  }
+`
 
 export const ContainerProducts = styled.section`
   width: 80%;
@@ -54,7 +63,6 @@ export const Power2 = styled.section`
 `
 
 export const Power3 = styled.section`
-  padding: 1rem 5rem;
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -63,6 +71,18 @@ export const Power3 = styled.section`
   background-image: url(${BG3});
   background-repeat: repeat;
   background-size: contain;
+  background-position: center;
+  padding: 1rem 5rem;
+`
+
+export const Power5 = styled.section`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 26.9rem;
+  align-items: center;
+  background-image: url(${BG5});
+  background-size: cover;
   background-position: center;
   padding: 1rem 5rem;
 `

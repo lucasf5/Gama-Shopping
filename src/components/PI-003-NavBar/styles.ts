@@ -17,6 +17,12 @@ export const Container = styled.header`
     height: 5rem;
     width: 80vw;
     margin: 1rem auto;
+
+    .iconButton {
+        :disabled {
+            opacity: 0.5;
+        }
+    }
     
     .Logo {
         width: 8rem;
@@ -24,6 +30,10 @@ export const Container = styled.header`
         border-radius: 25px;
         padding: 0.5rem;
         cursor: pointer;
+        :hover {
+            box-shadow: inset 6px 6px 6px white, inset -6px -6px 6px #cbced1;
+            transform: scale(1.05);
+        }
     }
 
     .localizacao{
@@ -37,6 +47,8 @@ export const Container = styled.header`
             justify-content: center;
             align-items: center;
             gap: 4px;
+
+            cursor: pointer;
 
             height: 38px;
             width: 143px;

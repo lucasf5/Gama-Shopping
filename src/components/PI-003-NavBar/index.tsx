@@ -45,7 +45,7 @@ export function Navigation() {
             <img src={Point} />
             <span>{adress}</span>
           </div>
-          <IconButton>
+          <IconButton disabled={cart.length === 0} className="iconButton">
             <Badge color="primary" badgeContent={cart.length}>
               <ShoppingCartIcon
                 onClick={() => navigate("/carrinho")}

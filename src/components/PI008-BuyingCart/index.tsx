@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const BuyingCart = () => {
-  const { cart, formsEnvio } = useCart();
+  const { cart, formsEnvio, setCart } = useCart();
   const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
@@ -57,6 +57,7 @@ const BuyingCart = () => {
         </div>
         <button disabled={isDisabled} className="confirm-button" onClick={
           () => {
+            setCart([])
             navigate("/sucesso")
           }
         }>Confirmar Pedido</button>

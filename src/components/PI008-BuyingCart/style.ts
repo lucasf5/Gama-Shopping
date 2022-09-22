@@ -6,9 +6,9 @@ export const CartContainer = styled.div`
     height: fit-content;
     padding: 0 40px 40px;
     .total-container{
-        display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-gap: 3px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
     }
 
     .itens-total,
@@ -29,7 +29,7 @@ export const CartContainer = styled.div`
         justify-content: center;
         background-color: ${props => props.theme["purple-900"]};
         padding: 1rem;
-        border-radius: 0 10% 0 10%;
+        border-radius: 5px;
         color: ${props => props.theme.white};
         margin-top: 15px;
         cursor: pointer;

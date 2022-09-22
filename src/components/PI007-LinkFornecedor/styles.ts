@@ -4,8 +4,6 @@ import bgImage from "../../assets/imgs/background.svg";
 // import BG3 from "../../assets/imgs/Rectangle.png";
 import BG3 from "../../assets/imgs/et.png";
 import BG2 from "../../assets/imgs/blackSale.png";
-import BG4 from "../../assets/imgs/BANNER1.png";
-import BG5 from "../../assets/imgs/BANNER2.png";
 
 export const ContainerSwiper = styled.div`
   .mySwiper{

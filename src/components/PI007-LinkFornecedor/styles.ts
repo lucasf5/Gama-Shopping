@@ -73,19 +73,6 @@ export const Power3 = styled.section`
   padding: 1rem 5rem;
 `
 
-export const Power5 = styled.section`
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  height: 26.9rem;
-  align-items: center;
-  background-image: url(${BG5});
-  background-size: cover;
-  background-position: center;
-  padding: 1rem 5rem;
-`
-
-
 export const AdContainer = styled.section`
   display: flex;
   justify-content: space-evenly;

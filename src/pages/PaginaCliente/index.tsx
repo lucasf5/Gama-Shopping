@@ -4,7 +4,6 @@ import { Container, OptionsContainer } from "./styles";
 import Modal from "react-modal";
 import { X } from "phosphor-react";
 import { useCart } from "../../contexts/useCart";
-import { ProductRegistration } from "../../components/PI011-CadastroProduto";
 
 export function PaginaCliente() {
   const {isOpen, setIsOpen, setCep} = useCart();

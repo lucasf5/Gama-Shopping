@@ -3,7 +3,6 @@ import BuyingItem from "../PI008-BuyingItens/intex";
 import { useCart } from "../../contexts/useCart";
 import { formatPrice } from "../../util/format";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 const RedirectCard = () => {
   const { cart, formsEnvio, setCart } = useCart();

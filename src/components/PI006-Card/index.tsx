@@ -29,7 +29,7 @@ export function Cards() {
       );
 
       const all = await axios.get(
-        'https://api.mercadolibre.com/sites/MLB/search?q=$all'
+        'https://api.mercadolibre.com/sites/MLB/search?q=$macbook'
       );
 
       if (pesquisa === "") {

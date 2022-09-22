@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import bgImage from "../../assets/imgs/background.svg";
 
-
 export const ContainerProducts = styled.section`
   width: 80%;
   display: flex;
@@ -12,7 +11,7 @@ export const ContainerProducts = styled.section`
   @media (max-width: 915px) {
     flex-direction: column;
   }
-`
+`;
 
 export const Container = styled.section`
   display: flex;
@@ -31,7 +30,7 @@ export const Container = styled.section`
       display: flex;
       position: fixed;
       left: 0;
-      top: 55%;
+      top: 57%;
       cursor: pointer;
     }
   }
@@ -39,7 +38,7 @@ export const Container = styled.section`
 
 export const AdContainer = styled.section`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
   align-items: center;
   background-image: url(${bgImage});
@@ -95,11 +94,13 @@ export const AdContainer = styled.section`
   .coffee_icon {
     color: white;
     background-color: #8047f8;
-
   }
-  @media (max-width: 915px) {
+
+  @media (max-width: 1000px) {
     width: 100%;
     padding: 2rem;
+    justify-content: space-evenly;
+    gap: 0;
     h1 {
       font-size: 1.75rem;
     }
@@ -132,7 +133,7 @@ export const Stores = styled.div`
     font-weight: bold;
   }
 
-  .OptionsName{
+  .OptionsName {
     cursor: pointer;
     &.active {
       color: #c47f17;
@@ -168,16 +169,22 @@ export const Options = styled.aside`
   padding: 2rem 1rem;
 
   width: 15rem;
+  height: 100%;
   left: 8rem;
   top: 35rem;
 
-  background: #f3f2f2;
+  background-color: ${(props) => props.theme["white"]};
+  box-shadow: inset 2px 2px 2px wheat, inset -2px -2px 2px #cbced1;
   border-radius: 6px;
 
   .options span {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: 0.5rem;
+    margin-left: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: ${(props) => props.theme["purple-900"]};
   }
   .input_options {
     display: flex;
@@ -185,6 +192,11 @@ export const Options = styled.aside`
     gap: 2rem;
 
     margin-top: 2rem;
+    margin-left: 1rem;
+    &_active {
+      color: ${(props) => props.theme["green"]};
+      font-weight: bold;
+    }
   }
   .input_options label {
     padding: 1rem;
@@ -208,22 +220,21 @@ export const Options = styled.aside`
   @media (max-width: 915px) {
     position: fixed;
     left: -500px;
+    height: 100%;
 
     &.seeMore {
       display: flex;
-      justify-content: center;
       align-items: center;
       position: fixed;
       left: 0;
       transition: 0.5s ease-in-out;
+      z-index: 999;
     }
 
-    &.seeMore  aside {
-      
+    &.seeMore aside {
       overflow: auto;
-
       height: 600px;
+    
     }
   }
-
 `;

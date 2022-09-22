@@ -1,4 +1,7 @@
-import styled from 'styled-components'
+import { fadeInLeft } from 'react-animations';
+import styled, { keyframes } from 'styled-components';
+
+const fadeInLeftAnimation = keyframes`${fadeInLeft}`;
 
 export const Container = styled.div`
     display: flex;
@@ -7,14 +10,16 @@ export const Container = styled.div`
     gap: 2rem;
 
     margin: 2rem auto;
-    width: 60%;
+    width: 70%;
     height: 100%;
     padding: 1.5rem;
     border-radius: 0.5rem;
 
-    background-color: ${props => props.theme['purple-100']};
+    background-color: ${props => props.theme['white']};
 
-    @media (max-width: 950px) {
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+
+    @media (max-width: 980px) {
         flex-direction: column;
         width: 80%;
     }
@@ -28,9 +33,11 @@ export const ContainerImage = styled.div`
         margin-top: 20px;
         cursor: pointer;
         transition: 0.2s ease-in-out;
+        animation: 1s ${fadeInLeftAnimation};
+
 
         &:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
             transition: 0.2s ease-in-out;
         }
         @media (max-width: 950px) {
@@ -43,6 +50,7 @@ export const ContainerProducts = styled.div`
         text-align: center;
         flex-direction: column;
         max-width: 400px;
+        height: 100%;
         gap: 1rem;
 
     article {

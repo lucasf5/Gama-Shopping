@@ -5,7 +5,6 @@ import { useCart } from "../../contexts/useCart";
 import { api } from "../../services/api";
 import { formatPrice } from "../../util/format";
 import { ButtonCart } from "../PI006-ButtonCart";
-import { IProduct } from "../PI008-BuyingItens/intex";
 import { Container, ContainerImage, ContainerProducts } from "./styles";
 
 const Produto = () => {

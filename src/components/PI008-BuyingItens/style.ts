@@ -4,7 +4,7 @@ export const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${(props) => props.theme["gray-100"]};
+  background-color: ${(props) => props.theme["white"]};
   border-bottom: 1px solid ${(props) => props.theme["gray-400"]};
   margin-top: 2rem;
 
@@ -23,6 +23,7 @@ export const ItemContainer = styled.div`
   .container {
     display: flex;
     align-items: center;
+    gap: 1rem;
     .img-container img {
       width: 5rem;
     }
@@ -30,8 +31,9 @@ export const ItemContainer = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
+      text-align: start;
       .item-name {
-        text-align: center;
+        text-align: start;
         font-weight: 600;
       }
     }
@@ -100,7 +102,9 @@ export const ItemContainer = styled.div`
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      background-color: #e6e5e5;
+      background-color: ${(props) => props.theme["white"]};
+      border: 1px solid ${(props) => props.theme["purple-500"]};
+      border-radius: 10px;
       &__unity {
         color: ${(props) => props.theme["purple-500"]};
         background-color: transparent;

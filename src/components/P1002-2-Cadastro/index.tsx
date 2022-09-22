@@ -132,12 +132,6 @@ const Cadastro = () => {
               required
             />
           </label>
-          <article className="inputCheckbox">
-            <div>
-              <input type="checkbox" name="checkbox" />
-            </div>
-            <div>Você é vendedor?</div>
-          </article>
 
           <button>Cadastrar</button>
         </FormContainer>

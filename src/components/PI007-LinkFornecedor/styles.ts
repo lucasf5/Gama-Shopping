@@ -5,6 +5,13 @@ import bgImage from "../../assets/imgs/background.svg";
 import BG3 from "../../assets/imgs/et.png";
 import BG2 from "../../assets/imgs/blackSale.png";
 
+export const ContainerSwiper = styled.div`
+  .mySwiper{
+    width: 100%;
+    height: 100%;
+  }
+`
+
 export const ContainerProducts = styled.section`
   width: 80%;
   display: flex;
@@ -54,7 +61,6 @@ export const Power2 = styled.section`
 `
 
 export const Power3 = styled.section`
-  padding: 1rem 5rem;
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -66,7 +72,6 @@ export const Power3 = styled.section`
   background-position: center;
   padding: 1rem 5rem;
 `
-
 
 export const AdContainer = styled.section`
   display: flex;

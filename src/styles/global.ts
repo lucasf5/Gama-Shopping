@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -8,16 +8,29 @@ export const GlobalStyle = createGlobalStyle`
   }
   :focus {
     outline: 0;
-    box-shadow: 0 0 0 2px ${(props) => props.theme['purple-900']}
+    box-shadow: 0 0 0 2px ${(props) => props.theme["purple-900"]}
   }
   body {
-    background: ${(props) => props.theme['white-100']}
+    background: ${(props) => props.theme["white-100"]}
   }
   body, input, textarea, button {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1rem;
   }
+  body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+   
+  background-color: ${(props) => props.theme["white"]};        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: ${(props) => props.theme["purple-500"]};    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+}
   .react-modal-overlay{
         background-color: rgba(0,0,0,0.5);
 
@@ -39,7 +52,7 @@ export const GlobalStyle = createGlobalStyle`
         gap: 1rem;
         width: 100%;
         max-width: 50%;
-        background-color: ${(props) => props.theme['white-100']};
+        background-color: ${(props) => props.theme["white-100"]};
         padding: 3rem;
         position: relative;
         border-radius: 0.5rem;
@@ -47,7 +60,7 @@ export const GlobalStyle = createGlobalStyle`
         input{
             text-align: center;
             border-radius: 0.25rem;
-            border: 1px solid ${(props) => props.theme['gray-100']};
+            border: 1px solid ${(props) => props.theme["gray-100"]};
             padding: 0.5rem 1.5rem;
         }
 
@@ -65,4 +78,4 @@ export const GlobalStyle = createGlobalStyle`
         background-color: transparent;
         border: none;
     }
-`
+`;

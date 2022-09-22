@@ -8,7 +8,8 @@ export const ContainerPrincipal = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    height: 25vh;
+    height: 100%;
+    padding: 2rem;
     background-image: url(${fundo});
     background-size: cover;
 `

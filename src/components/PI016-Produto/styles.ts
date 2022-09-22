@@ -10,7 +10,7 @@ export const Container = styled.div`
     gap: 2rem;
 
     margin: 2rem auto;
-    width: 70%;
+    width: 60%;
     height: 100%;
     padding: 1.5rem;
     border-radius: 0.5rem;
@@ -18,6 +18,12 @@ export const Container = styled.div`
     background-color: ${props => props.theme['white']};
 
     box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+
+    .mySwiper{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
 
     @media (max-width: 980px) {
         flex-direction: column;
@@ -28,12 +34,16 @@ export const Container = styled.div`
 export const ContainerImage = styled.div`
         display: flex;
         flex-direction: column;
-        max-width: 400px;
+        align-items: center;
         margin-bottom: 20px;
         margin-top: 20px;
         cursor: pointer;
         transition: 0.2s ease-in-out;
         animation: 1s ${fadeInLeftAnimation};
+
+        img {
+            max-width: 400px;
+        }
 
 
         &:hover {

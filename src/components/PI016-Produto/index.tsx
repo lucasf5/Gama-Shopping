@@ -6,6 +6,23 @@ import { api } from "../../services/api";
 import { formatPrice } from "../../util/format";
 import { ButtonCart } from "../PI006-ButtonCart";
 import { Container, ContainerImage, ContainerProducts } from "./styles";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  EffectFade,
+  Controller,
+  Virtual,
+} from "swiper";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 const Produto = () => {
   const { id } = useParams();
@@ -19,7 +36,7 @@ const Produto = () => {
     const loadProduct = async () => {
       const response = await api.get(`/items/${id}`);
       setProduct(response.data);
-      setPictures(response.data.pictures[0]);
+      setPictures(response.data.pictures);
     };
 
     loadProduct();
@@ -43,9 +60,23 @@ const Produto = () => {
         <ArrowCounterClockwise size={32} onClick={() => navigate(-1)} />
       </button>
       <Container>
-        <ContainerImage>
-          <img src={pictures.url} alt={pictures.title} />
-        </ContainerImage>
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          spaceBetween={0}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
+          className="mySwiper"
+        >
+          {pictures.map((picture: any) => (
+            <SwiperSlide>
+              <ContainerImage>
+                <img src={picture.url} alt={picture.title} />
+              </ContainerImage>
+            </SwiperSlide>
+          ))}
+        </Swiper>
         <ContainerProducts>
           <h1>{product.title}</h1>
           <p>{product.warranty}</p>

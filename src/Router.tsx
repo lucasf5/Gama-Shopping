@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Produto from "./components/PI016-Produto";
 import { DefaultLayout } from "./layouts/DefaultLayout";
-import { CadastroProduto } from "./pages/CadastroProduto";
 import { CadastroUsuario } from "./pages/CadastroUsuario";
 import { Checkout } from "./pages/Checkout";
 import { Login } from "./pages/Login";

@@ -10,8 +10,7 @@ import { Sucesso } from "./pages/Sucesso";
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/novo_usuario" element={<CadastroUsuario />} />
+
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/cliente" element={<PaginaCliente />} />
         <Route path="/carrinho" element={<Checkout />} />

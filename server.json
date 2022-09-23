@@ -121,7 +121,7 @@
       "id": "d13730c7-3034-460b-9592-a8d7874bdcff",
       "isSeller": true,
       "products": [
-       {
+        {
           "id": "13",
           "nome": "Produto 13",
           "options": "Headsets",
@@ -227,6 +227,18 @@
           "image": "https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
         }
       ]
+    },
+    {
+      "nome": "Lucas",
+      "email": "lucasfpnt2@gmail.com",
+      "password": "lucas843",
+      "id": "9e7b8f1e-099e-4a09-b425-972162e9540a"
+    },
+    {
+      "nome": "Lucas",
+      "email": "lucasfpnt@gmail.com",
+      "password": "lucas843",
+      "id": "51acecea-feda-4f44-bcd3-29d6d7a2185a"
     }
   ],
   "stock": [

@@ -13,7 +13,7 @@ export function Checkout() {
   const navigate = useNavigate();
   useEffect(() => {
     if (cart.length === 0) {
-      navigate("/cliente");
+      navigate("/");
     }
   }, [cart]);
   return (

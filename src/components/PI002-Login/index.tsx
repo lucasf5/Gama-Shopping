@@ -56,7 +56,7 @@ const Login = () => {
       if (possuiCadastro.password === senha) {
         notifySucess();
         setTimeout(() => {
-          Navigate("/cliente");
+          Navigate("/");
         }, 2000);
       } else {
         notifyError();

@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Logo_Navbar from "../../assets/LogoGama.svg";
 import { useCart } from "../../contexts/useCart";
-import { ButtonCart } from "../PI006-ButtonCart";
 import { Container, ContainerPrincipal } from "./styles";
 import Point from "../../assets/imgs/Point.svg";
 

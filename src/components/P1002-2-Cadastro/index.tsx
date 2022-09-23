@@ -7,7 +7,6 @@ import {
   Background,
 } from "./styles";
 import GamaShopping from "../../assets/imgs/GamaShopping.svg";
-import { api } from "../../services/api";
 import { IEventEmailRegister, IEventEmailCadastro } from "../../types";
 import toast, { Toaster } from "react-hot-toast";
 import { v4 as uuidv4 } from "uuid";

@@ -37,7 +37,7 @@ export function Navigation() {
     <ContainerPrincipal>
       <Container>
         <img src={Logo_Navbar} className="Logo" onClick={()=> {
-          navigate("/cliente");
+          navigate("/");
         }}/>
         <div className="localizacao">
           <div className="cidade" onClick={() => setIsOpen(true)}>

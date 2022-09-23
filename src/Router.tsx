@@ -12,7 +12,7 @@ export function Router() {
     <Routes>
 
       <Route path="/" element={<DefaultLayout />}>
-        <Route path="/cliente" element={<PaginaCliente />} />
+        <Route index element={<PaginaCliente />} />
         <Route path="/carrinho" element={<Checkout />} />
         <Route path="/sucesso" element={<Sucesso />} />
         <Route path="/produto/:id" element={<Produto />} />
